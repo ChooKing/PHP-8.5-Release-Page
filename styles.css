@@ -14,3 +14,69 @@
 #theme-toggle:checked + .theme-wrapper{
     --color-background-main-lightness: 17%;
 }
+#nav-toggle{
+    display: none;
+}
+nav {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    --animation-time: 0.25s;
+    padding: 1rem;
+}
+.navbar__brand{
+    position: absolute;
+    top: 0.5rem;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+.hamburger-btn {
+    z-index: 2; /*Only needed if you park the menu in same location*/
+    width: 1.5rem;
+    height: 1.5rem;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: none;
+    cursor: pointer;
+}
+
+.hamburger-line {
+    background-color: white;
+    flex: 0 0 0.2rem;
+    width: 100%;
+    transition: transform var(--animation-time),
+    opacity calc(var(--animation-time) * 1.5), scale var(--animation-time);
+}
+
+.hamburger-line:nth-child(1),
+.hamburger-line:nth-child(3) {
+    transform-origin: left;
+}
+
+/*nav.open .menu {*/
+/*    transform: translateY(0);*/
+/*}*/
+
+#nav-toggle:checked + nav .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) scaleX(1.25);
+}
+
+#nav-toggle:checked + nav .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+#nav-toggle:checked + nav .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) scaleX(1.25);
+}
+.navbar__nav{
+    list-style: none;
+    margin: 1rem 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+}
