@@ -1,0 +1,16 @@
+:root{
+    color-scheme: dark;
+    --color-theme-primary-hue: 229;
+    --color-theme-primary-lightness: 44%;
+    --color-theme-primary-saturation: 30%;
+    --color-theme-primary: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-theme-primary-lightness));
+    --color-theme-secondary: hsl(321, 37%, 35%);
+    --color-background-main-lightness: var(--color-theme-primary-lightness);
+}
+.theme-wrapper{
+    background-color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-background-main-lightness));
+    height: 50vh;
+}
+#theme-toggle:checked + .theme-wrapper{
+    --color-background-main-lightness: 17%;
+}
