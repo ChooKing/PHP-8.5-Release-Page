@@ -21,20 +21,38 @@
     :root{
         color-scheme: dark;
     }
-    #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
+    .theme-wrapper{
+        --color-background-main-lightness: 17%;
+    }
+    label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
+    }
+    #theme-toggle:checked + .theme-wrapper{
+        --color-background-main-lightness: var(--color-theme-primary-lightness);
+    }
+    #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
+        background-image: url("/images/icons/dark-mode.svg");
     }
 }
 @media screen and (prefers-color-scheme: light){
     :root{
         color-scheme: light;
     }
+    label[for="theme-toggle"]{
+        background-image: url("/images/icons/dark-mode.svg");
+    }
+    #theme-toggle:checked + .theme-wrapper{
+        --color-background-main-lightness: 17%;
+    }
+    #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
+        background-image: url("/images/icons/light-mode.svg");
+    }
 }
 label[for="theme-toggle"]{
     cursor: pointer;
     width: 1rem;
     height: 1rem;
-    background-image: url("/images/icons/dark-mode.svg");
+    /*background-image: url("/images/icons/dark-mode.svg");*/
 }
 .nav__wrapper{
     max-width: 1200px;
@@ -94,6 +112,11 @@ nav {
     transform: rotate(-45deg) scaleX(1.25);
 }
 .navbar__nav{
+    font-family: "Zalando Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 400;
     list-style: none;
     margin: 1rem 0;
     padding: 0;
