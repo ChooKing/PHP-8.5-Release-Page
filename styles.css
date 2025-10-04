@@ -1,5 +1,5 @@
 :root{
-    color-scheme: dark;
+    color-scheme: light dark;
     --color-theme-primary-hue: 229;
     --color-theme-primary-lightness: 44%;
     --color-theme-primary-saturation: 30%;
@@ -16,6 +16,25 @@
 }
 #theme-toggle, #nav-toggle{
     display: none;
+}
+@media screen and (prefers-color-scheme: dark){
+    :root{
+        color-scheme: dark;
+    }
+    #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
+        background-image: url("/images/icons/light-mode.svg");
+    }
+}
+@media screen and (prefers-color-scheme: light){
+    :root{
+        color-scheme: light;
+    }
+}
+label[for="theme-toggle"]{
+    cursor: pointer;
+    width: 1rem;
+    height: 1rem;
+    background-image: url("/images/icons/dark-mode.svg");
 }
 .nav__wrapper{
     max-width: 1200px;
