@@ -9,6 +9,8 @@
     --color-theme-secondary: hsl(321, 37%, 35%);
     --color-background-main-lightness: var(--color-theme-primary-lightness);
     --color-placeholder: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 1.5));
+    --color-selected-lightness: 40%;
+    --color-background-selected: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-selected-lightness));
     background-color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-background-main-lightness));
 }
 #theme-toggle:checked + .theme-wrapper{
@@ -26,6 +28,7 @@ input::placeholder{
     }
     .theme-wrapper{
         --color-background-main-lightness: 17%;
+        --color-selected-lightness: 30%;
     }
 
     label[for="theme-toggle"]{
@@ -33,6 +36,7 @@ input::placeholder{
     }
     #theme-toggle:checked + .theme-wrapper{
         --color-background-main-lightness: var(--color-theme-primary-lightness);
+        --color-selected-lightness: 40%;
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/dark-mode.svg");
@@ -47,6 +51,7 @@ input::placeholder{
     }
     #theme-toggle:checked + .theme-wrapper{
         --color-background-main-lightness: 17%;
+        --color-selected-lightness: 30%;
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
@@ -137,8 +142,13 @@ nav {
     display: none;
 }
 .navbar__nav a{
+    display: block;
+    padding: 0.5rem;
     text-decoration: none;
     color: inherit;
+}
+.navbar__nav a[aria-current="page"]{
+    background-color: var(--color-background-selected);
 }
 .navbar__item img{
     height: 1.5rem;
