@@ -17,6 +17,10 @@
 #theme-toggle, #nav-toggle{
     display: none;
 }
+.nav__wrapper{
+    max-width: 1200px;
+    margin: 0 auto;
+}
 nav {
     display: flex;
     flex-direction: column;
@@ -82,8 +86,47 @@ nav {
 .navbar__nav a{
     text-decoration: none;
     color: inherit;
-    font-size: 1.5rem;
 }
 .navbar__item img{
     height: 1.5rem;
+}
+.search-modal__form{
+    display: flex;
+    align-items: center;
+    gap: 0.2rem;
+    border: 1px solid hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 1.5));
+    padding: 0.2rem;
+    border-radius: 1rem;
+}
+.search-modal__input{
+    background-color: transparent;
+    border: none;
+    outline: none;
+    color: white;
+    width: 100%;
+}
+@media screen and (min-width: 768px){
+    .hamburger-btn{
+        display: none;
+    }
+    nav{
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+
+    }
+    .navbar__nav{
+        flex: 1;
+        flex-direction: row;
+        justify-content: space-around;
+        align-items: flex-start;
+        gap: 1rem;
+
+    }
+    .nav__header{
+        display: contents;
+    }
+    label[for="theme-toggle"]{
+        order: 1;
+    }
 }
