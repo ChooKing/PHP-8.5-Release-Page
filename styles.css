@@ -1,21 +1,24 @@
 :root{
     color-scheme: light dark;
+}
+.theme-wrapper{
     --color-theme-primary-hue: 229;
     --color-theme-primary-lightness: 44%;
     --color-theme-primary-saturation: 30%;
     --color-theme-primary: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-theme-primary-lightness));
     --color-theme-secondary: hsl(321, 37%, 35%);
     --color-background-main-lightness: var(--color-theme-primary-lightness);
-}
-.theme-wrapper{
+    --color-placeholder: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 1.5));
     background-color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-background-main-lightness));
-
 }
 #theme-toggle:checked + .theme-wrapper{
     --color-background-main-lightness: 17%;
 }
 #theme-toggle, #nav-toggle{
     display: none;
+}
+input::placeholder{
+    color: var(--color-placeholder);
 }
 @media screen and (prefers-color-scheme: dark){
     :root{
@@ -24,6 +27,7 @@
     .theme-wrapper{
         --color-background-main-lightness: 17%;
     }
+
     label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
     }
@@ -117,6 +121,7 @@ nav {
     font-weight: 400;
     font-style: normal;
     font-variation-settings: "wdth" 400;
+    color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 2));
     list-style: none;
     margin: 1rem 0;
     padding: 0;
