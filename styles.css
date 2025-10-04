@@ -97,10 +97,16 @@ nav {
     list-style: none;
     margin: 1rem 0;
     padding: 0;
-    display: flex;
+    display: none;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+}
+#nav-toggle:checked + nav .navbar__nav{
+    display: flex;
+}
+#nav-toggle:checked ~ .navbar__search-form{
+    display: none;
 }
 .navbar__nav a{
     text-decoration: none;
@@ -110,6 +116,7 @@ nav {
     height: 1.5rem;
 }
 .navbar__search-form{
+    display: block;
     padding: 0 1rem 1rem;
 }
 .search-modal__form{
@@ -125,22 +132,24 @@ nav {
     border: none;
     outline: none;
     color: white;
-    width: 100%;
 }
-@media screen and (min-width: 768px){
+@media screen and (min-width: 990px){
     .hamburger-btn{
         display: none;
     }
-    nav{
-        flex-direction: row;
-        justify-content: space-between;
+    .nav__wrapper{
+        display: flex;
         align-items: center;
+        padding: 1rem 1rem 0;
+    }
+    nav{
+        display: contents;
 
     }
     .navbar__nav{
-        flex: 1;
+        display: flex;
+        margin: 0 1rem;
         flex-direction: row;
-        justify-content: space-around;
         align-items: flex-start;
         gap: 1rem;
 
@@ -151,4 +160,8 @@ nav {
     label[for="theme-toggle"]{
         order: 1;
     }
+    .navbar__search-form{
+        flex: 1;
+    }
+
 }
