@@ -26,7 +26,7 @@ nav {
     flex-direction: column;
     position: relative;
     --animation-time: 0.25s;
-    padding: 1rem;
+    padding: 1rem 1rem 0;
 }
 .nav__header{
     display: flex;
@@ -90,12 +90,15 @@ nav {
 .navbar__item img{
     height: 1.5rem;
 }
+.navbar__search-form{
+    padding: 0 1rem 1rem;
+}
 .search-modal__form{
     display: flex;
     align-items: center;
     gap: 0.2rem;
     border: 1px solid hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 1.5));
-    padding: 0.2rem;
+    padding: 0.5rem;
     border-radius: 1rem;
 }
 .search-modal__input{
