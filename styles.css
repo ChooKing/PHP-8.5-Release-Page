@@ -60,10 +60,10 @@ input::placeholder{
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/dark-mode.svg");
     }
-    #theme-toggle:checked + .theme-wrapper .navbar__item img{
+    #theme-toggle:checked + .theme-wrapper .navbar__item img, #theme-toggle:checked + .theme-wrapper .hero .php8-logo{
         filter: contrast(200%) saturate(0%);
     }
-    .navbar__item img{
+    .navbar__item img, .hero .php8-logo{
         filter: none;
     }
 }
@@ -81,10 +81,10 @@ input::placeholder{
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
     }
-    #theme-toggle:checked + .theme-wrapper .navbar__item img{
+    #theme-toggle:checked + .theme-wrapper .navbar__item img, #theme-toggle:checked + .theme-wrapper .hero .php8-logo{
         filter: none;
     }
-    .navbar__item img{
+    .navbar__item img, .hero .php8-logo{
         filter: contrast(200%) saturate(0%);
     }
 
