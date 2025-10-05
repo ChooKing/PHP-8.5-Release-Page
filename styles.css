@@ -201,5 +201,8 @@ nav {
     .navbar__search-form{
         flex: 1;
     }
+    #nav-toggle:checked ~ .navbar__search-form{
+        display: block;
+    }
 
 }
