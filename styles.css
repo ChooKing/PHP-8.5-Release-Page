@@ -161,23 +161,26 @@ nav {
     color: var(--color-text-primary);
     list-style: none;
     margin: 1rem 0;
-    padding: 0;
+    padding: 1rem;
     display: none;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+    position: fixed;
+    top: 3rem;
+    border: 1px solid hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 1.5));
+
+    background-color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-background-main-lightness));
 }
 #nav-toggle:checked + nav .navbar__nav{
     display: flex;
-}
-#nav-toggle:checked ~ .navbar__search-form{
-    display: none;
 }
 .navbar__nav a{
     display: block;
     padding: 0.5rem;
     text-decoration: none;
     color: inherit;
+    font-size: 1.5rem;
 }
 .navbar__nav a[aria-current="page"]{
     background-color: var(--color-background-selected);
@@ -197,9 +200,11 @@ nav {
     border: 1px solid hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 1.5));
     padding: 0.5rem;
     border-radius: 1rem;
+    color: white;
 }
 .search-modal__input{
     background-color: transparent;
+    width: 100%;
     border: none;
     outline: none;
     color: white;
@@ -241,16 +246,36 @@ h1{
     margin: 0.5rem 0;
     line-height: 1;
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
+
 }
 h1 img{
     margin-top: 0.4rem;
     height: 3.3rem;
 }
-
-
+.php8-section__content{
+    text-align: center;
+}
+.php8-section__content p{
+    font-size: 1.5rem;
+}
+.link-button{
+    display: inline-block;
+    padding: 0.5rem 1rem;
+    background-color: var(--color-theme-secondary);
+    color: white;
+    text-decoration: none;
+    border-radius: 1rem;
+}
+.php8-section__content .link-button{
+    font-size: 1.2rem;
+    font-weight: 600;
+    font-style: normal;
+    font-variation-settings: "wdth" 600;
+}
 @media screen and (min-width: 990px){
     .hamburger-btn{
         display: none;
@@ -262,14 +287,21 @@ h1 img{
     }
     nav{
         display: contents;
-
     }
     .navbar__nav{
+        width: auto;
+        position: static;
+        transform: none;
         display: flex;
         margin: 0 1rem;
+        padding: 0;
         flex-direction: row;
         align-items: flex-start;
         gap: 1rem;
+        border: none;
+    }
+    .navbar__nav a{
+        font-size: 1rem;
     }
     .nav__header{
         display: contents;
@@ -284,5 +316,8 @@ h1 img{
     }
     #nav-toggle:checked ~ .navbar__search-form{
         display: block;
+    }
+    h1{
+        flex-direction: row;
     }
 }
