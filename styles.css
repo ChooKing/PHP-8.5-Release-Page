@@ -61,7 +61,7 @@ input::placeholder{
         background-image: url("/images/icons/dark-mode.svg");
     }
     #theme-toggle:checked + .theme-wrapper .navbar__item img, #theme-toggle:checked + .theme-wrapper .hero .php8-logo{
-        filter: contrast(200%) saturate(0%);
+        filter: contrast(300%) saturate(0%);
     }
     .navbar__item img, .hero .php8-logo{
         filter: none;
@@ -85,7 +85,7 @@ input::placeholder{
         filter: none;
     }
     .navbar__item img, .hero .php8-logo{
-        filter: contrast(200%) saturate(0%);
+        filter: contrast(300%) saturate(0%);
     }
 
 }
@@ -93,7 +93,6 @@ label[for="theme-toggle"]{
     cursor: pointer;
     width: 1rem;
     height: 1rem;
-    /*background-image: url("/images/icons/dark-mode.svg");*/
 }
 
 /* Nav Section */
@@ -233,7 +232,23 @@ main{
     background-color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-background-main-lightness));
     color: var(--color-text-primary);
 }
-
+h1{
+    font-size: 3rem;
+    font-weight: 600;
+    font-style: italic;
+    font-variation-settings: "wdth" 600;
+    color: white;
+    margin: 0.5rem 0;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+h1 img{
+    margin-top: 0.4rem;
+    height: 3.3rem;
+}
 
 
 @media screen and (min-width: 990px){
