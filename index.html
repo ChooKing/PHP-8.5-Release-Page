@@ -96,20 +96,26 @@
         </section>
         <section class="new-features">
             <article class="feature">
-                <h2 id="url_parsing_api">
-                    Add RFC 3986 and WHATWG URL compliant API <a class="php8-rfc" href="https://wiki.php.net/rfc/url_parsing_api">RFC</a>
-                </h2>
-                <div class="php8-compare__main">
-                    <div class="php8-compare__block example-contents">
-                        <div class="php8-compare__label">PHP &lt; 8.5</div>
-                        <div class="php8-code phpcode">
-                            <div class="phpcode"><code><span class="html"><span class="default">$components </span><span class="keyword">= </span><span class="default">parse_url</span><span class="keyword">(</span><span class="string">"https://php.net/releases/8.5/en.php"</span><span class="keyword">);<br><br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$components</span><span class="keyword">[</span><span class="string">'host'</span><span class="keyword">]);<br></span><span class="comment">// string(7) "php.net"</span></span></code></div>                    </div>
+                <header>
+                    <h2 id="url_parsing_api">
+                        Add RFC 3986 and WHATWG URL compliant API <a class="php8-rfc" href="https://wiki.php.net/rfc/url_parsing_api">RFC</a>
+                    </h2>
+                </header>
+                <div class="compare__code">
+                    <div class="code__group">
+                        <div class="code__label">PHP &lt; 8.5</div>
+                            <div class="phpcode">
+                                <code><span class="html"><span class="default">$components </span><span class="keyword">= </span><span class="default">parse_url</span><span class="keyword">(</span><span class="string">"https://php.net/releases/8.5/en.php"</span><span class="keyword">);<br><br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$components</span><span class="keyword">[</span><span class="string">'host'</span><span class="keyword">]);<br></span><span class="comment">// string(7) "php.net"</span></span>
+                                </code>
+                            </div>
                     </div>
-                    <div class="php8-compare__arrow"></div>
-                    <div class="php8-compare__block example-contents" style="display: table;">
-                        <div class="php8-compare__label php8-compare__label_new">PHP 8.5</div>
-                        <div class="php8-code phpcode" style="display: table-cell;">
-                            <div class="phpcode"><code><span class="html"><span class="default"></span><span class="keyword">use </span><span class="default">Uri\Rfc3986\Uri</span><span class="keyword">;<br><br></span><span class="default">$uri </span><span class="keyword">= new </span><span class="default">Uri</span><span class="keyword">(</span><span class="string">"https://php.net/releases/8.5/en.php"</span><span class="keyword">);<br><br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$uri</span><span class="keyword">-&gt;</span><span class="default">getHost</span><span class="keyword">());<br></span><span class="comment">// string(7) "php.net"</span></span></code></div>                    </div>
+
+                    <div class="code__group">
+                        <div class="code__label">PHP 8.5</div>
+                            <div class="phpcode">
+                                <code><span class="html"><span class="default"></span><span class="keyword">use </span><span class="default">Uri\Rfc3986\Uri</span><span class="keyword">;<br><br></span><span class="default">$uri </span><span class="keyword">= new </span><span class="default">Uri</span><span class="keyword">(</span><span class="string">"https://php.net/releases/8.5/en.php"</span><span class="keyword">);<br><br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$uri</span><span class="keyword">-&gt;</span><span class="default">getHost</span><span class="keyword">());<br></span><span class="comment">// string(7) "php.net"</span></span>
+                                </code>
+                            </div>
                     </div>
                 </div>
 
