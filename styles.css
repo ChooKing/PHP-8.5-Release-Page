@@ -1,16 +1,33 @@
 :root{
     color-scheme: light dark;
 }
+* {
+    box-sizing: border-box;
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+html{
+    font-family: "Zalando Sans", sans-serif;
+    font-optical-sizing: auto;
+}
+/* Color/Theme setup */
 .theme-wrapper{
-    --color-theme-primary-hue: 229;
+    --color-theme-primary-hue: 229deg;
     --color-theme-primary-lightness: 44%;
     --color-theme-primary-saturation: 30%;
     --color-theme-primary: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-theme-primary-lightness));
-    --color-theme-secondary: hsl(321, 37%, 35%);
+    /*--color-theme-secondary: hsl(321, 37%, 35%);*/
+    --color-theme-secondary-hue: 321deg;
+    --color-theme-secondary-lightness: 37%;
+    --color-theme-secondary-saturation: 35%;
+    --color-theme-secondary: hsl(var(--color-theme-secondary-hue), var(--color-theme-secondary-saturation), var(--color-theme-secondary-lightness));
     --color-background-main-lightness: var(--color-theme-primary-lightness);
     --color-placeholder: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 1.5));
     --color-selected-lightness: 40%;
     --color-background-selected: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-selected-lightness));
+    --color-text-primary: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 2));
 
 }
 #theme-toggle:checked + .theme-wrapper{
@@ -26,11 +43,13 @@ input::placeholder{
     :root{
         color-scheme: dark;
     }
+    :root:has(#theme-toggle:checked){
+        color-scheme: light;
+    }
     .theme-wrapper{
         --color-background-main-lightness: 17%;
         --color-selected-lightness: 30%;
     }
-
     label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
     }
@@ -40,6 +59,12 @@ input::placeholder{
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/dark-mode.svg");
+    }
+    #theme-toggle:checked + .theme-wrapper .navbar__item img{
+        filter: contrast(200%) saturate(0%);
+    }
+    .navbar__item img{
+        filter: none;
     }
 }
 @media screen and (prefers-color-scheme: light){
@@ -56,6 +81,13 @@ input::placeholder{
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
     }
+    #theme-toggle:checked + .theme-wrapper .navbar__item img{
+        filter: none;
+    }
+    .navbar__item img{
+        filter: contrast(200%) saturate(0%);
+    }
+
 }
 label[for="theme-toggle"]{
     cursor: pointer;
@@ -63,6 +95,9 @@ label[for="theme-toggle"]{
     height: 1rem;
     /*background-image: url("/images/icons/dark-mode.svg");*/
 }
+
+/* Nav Section */
+
 .nav__wrapper{
     background-color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-background-main-lightness));
     max-width: 1200px;
@@ -107,9 +142,7 @@ nav {
     transform-origin: left;
 }
 
-/*nav.open .menu {*/
-/*    transform: translateY(0);*/
-/*}*/
+/*TODO: Animate open/close of menu*/
 
 #nav-toggle:checked + nav .hamburger-line:nth-child(1) {
     transform: rotate(45deg) scaleX(1.25);
@@ -123,12 +156,10 @@ nav {
     transform: rotate(-45deg) scaleX(1.25);
 }
 .navbar__nav{
-    font-family: "Zalando Sans", sans-serif;
-    font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
     font-variation-settings: "wdth" 400;
-    color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 2));
+    color: var(--color-text-primary);
     list-style: none;
     margin: 1rem 0;
     padding: 0;
@@ -174,6 +205,37 @@ nav {
     outline: none;
     color: white;
 }
+
+/* Heads Up */
+.headsup{
+    background-color: var(--color-theme-secondary);
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0.5rem 1rem;
+    font-weight: 400;
+    font-style: normal;
+    font-variation-settings: "wdth" 400;
+    font-size: 1.2rem;
+    text-align: center;
+}
+.headsup a{
+    color: white;
+    text-decoration: none;
+}
+/* Main */
+main{
+    max-width: 1200px;
+    margin: 0 auto;
+}
+/* Hero */
+.hero{
+    padding: 1rem;
+    background-color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-background-main-lightness));
+    color: var(--color-text-primary);
+}
+
+
+
 @media screen and (min-width: 990px){
     .hamburger-btn{
         display: none;
@@ -208,5 +270,4 @@ nav {
     #nav-toggle:checked ~ .navbar__search-form{
         display: block;
     }
-
 }
