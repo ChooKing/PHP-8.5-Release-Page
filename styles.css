@@ -111,7 +111,7 @@ label[for="theme-toggle"]{
 
 .nav__wrapper{
     background-color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-background-main-lightness));
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     padding-bottom: 0.5rem;
 }
@@ -225,7 +225,7 @@ nav {
 /* Heads Up */
 .headsup{
     background-color: var(--color-theme-secondary);
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
     padding: 0.5rem 1rem;
     font-weight: 400;
@@ -240,7 +240,7 @@ nav {
 }
 /* Main */
 main{
-    max-width: 1200px;
+    max-width: 1500px;
     margin: 0 auto;
 }
 /* Hero */
