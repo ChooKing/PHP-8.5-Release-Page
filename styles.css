@@ -313,9 +313,7 @@ h1 img{
 }
 /* Compare Code*/
 .compare__code{
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
+
 }
 .code__label, .phpcode{
     padding: 0.25rem;
@@ -333,12 +331,16 @@ code{
     font-weight: 400;
     font-style: normal;
 }
+
 .phpcode{
     overflow-wrap: normal;
     border-radius: 0 0.75rem 0.75rem 0.75rem;
     padding: 0.5rem 1rem;
     border: 1px solid blue;
     overflow-x: auto;
+}
+.phpcode:nth-child(even){
+    margin-bottom: 1rem;
 }
 
 @media screen and (min-width: 990px){
@@ -386,6 +388,10 @@ code{
         flex-direction: row;
     }
     .compare__code{
-        flex-direction: row;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto auto;
+        grid-auto-flow: column;
+        gap: 0 1rem;
     }
 }

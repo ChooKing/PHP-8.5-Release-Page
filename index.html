@@ -7,7 +7,8 @@
     <title>php-net-8-5-release</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Zalando+Sans:ital,wght@0,300..900;1,300..500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Zalando+Sans:ital,wght@0,300..900;1,300..500&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -57,12 +58,15 @@
             <div class="search-modal__form">
                 <div class="search-modal__input-icon">
                     <!-- https://feathericons.com search -->
-                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <svg xmlns="http://www.w3.org/2000/svg" aria-hidden="true" width="24" viewBox="0 0 24 24"
+                         fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                         stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8"></circle>
                         <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
                     </svg>
                 </div>
-                <input type="search" id="search-modal__input" class="search-modal__input" placeholder="Search docs" aria-label="Search docs">
+                <input type="search" id="search-modal__input" class="search-modal__input" placeholder="Search docs"
+                       aria-label="Search docs">
             </div>
         </form>
     </div>
@@ -87,7 +91,8 @@
                     PHP 8.5 is a major update of the PHP language.
                 </p>
                 <p>
-                    It contains many new features, such as the new URI extension, support for modifying properties while cloning, the Pipe operator, performance improvements, bug fixes, and general cleanup.
+                    It contains many new features, such as the new URI extension, support for modifying properties while
+                    cloning, the Pipe operator, performance improvements, bug fixes, and general cleanup.
                 </p>
 
                 <a class="link-button" href="/downloads">Upgrade to PHP 8.5 now!</a>
@@ -98,29 +103,41 @@
             <article class="feature">
                 <header>
                     <h2 id="url_parsing_api">
-                        Add RFC 3986 and WHATWG URL compliant API <a class="php8-rfc" href="https://wiki.php.net/rfc/url_parsing_api">RFC</a>
+                        Add RFC 3986 and WHATWG URL compliant API <a class="php8-rfc"
+                                                                     href="https://wiki.php.net/rfc/url_parsing_api">RFC</a>
                     </h2>
                     <div class="feature__description">
-                        <code>Uri\UriException</code>, <code>Uri\InvalidUriException</code>, <code>Uri\UriComparisonMode</code>,
+                        <code>Uri\UriException</code>, <code>Uri\InvalidUriException</code>,
+                        <code>Uri\UriComparisonMode</code>,
                         <code>Uri\Rfc3986\Uri</code>, <code>Uri\WhatWg\InvalidUrlException</code>, <code>Uri\WhatWg\UrlValidationErrorType</code>,
                         <code>Uri\WhatWg\UrlValidationError</code>, and <code>Uri\WhatWg\Url</code> are now available.
                     </div>
                 </header>
                 <div class="compare__code">
-                    <div class="code__group">
-                        <div class="code__label">PHP &lt; 8.5</div>
-                            <div class="phpcode">
-                                <code><span class="html"><span class="default">$components </span><span class="keyword">= </span><span class="default">parse_url</span><span class="keyword">(</span><span class="string">"https://php.net/releases/8.5/en.php"</span><span class="keyword">);<br><br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$components</span><span class="keyword">[</span><span class="string">'host'</span><span class="keyword">]);<br></span><span class="comment">// string(7) "php.net"</span></span>
-                                </code>
-                            </div>
+                    <div class="code__label">PHP &lt; 8.5</div>
+                    <div class="phpcode">
+                        <code><span class="html"><span class="default">$components </span><span
+                                class="keyword">= </span><span class="default">parse_url</span><span
+                                class="keyword">(</span><span
+                                class="string">"https://php.net/releases/8.5/en.php"</span><span
+                                class="keyword">);<br><br></span><span class="default">var_dump</span><span
+                                class="keyword">(</span><span class="default">$components</span><span
+                                class="keyword">[</span><span class="string">'host'</span><span class="keyword">]);<br></span><span
+                                class="comment">// string(7) "php.net"</span></span>
+                        </code>
                     </div>
 
-                    <div class="code__group">
-                        <div class="code__label">PHP &ge; 8.5</div>
-                            <div class="phpcode">
-                                <code><span class="html"><span class="default"></span><span class="keyword">use </span><span class="default">Uri\Rfc3986\Uri</span><span class="keyword">;<br><br></span><span class="default">$uri </span><span class="keyword">= new </span><span class="default">Uri</span><span class="keyword">(</span><span class="string">"https://php.net/releases/8.5/en.php"</span><span class="keyword">);<br><br></span><span class="default">var_dump</span><span class="keyword">(</span><span class="default">$uri</span><span class="keyword">-&gt;</span><span class="default">getHost</span><span class="keyword">());<br></span><span class="comment">// string(7) "php.net"</span></span>
-                                </code>
-                            </div>
+                    <div class="code__label">PHP &ge; 8.5</div>
+                    <div class="phpcode">
+                        <code><span class="html"><span class="default"></span><span class="keyword">use </span><span
+                                class="default">Uri\Rfc3986\Uri</span><span class="keyword">;<br><br></span><span
+                                class="default">$uri </span><span class="keyword">= new </span><span
+                                class="default">Uri</span><span class="keyword">(</span><span class="string">"https://php.net/releases/8.5/en.php"</span><span
+                                class="keyword">);<br><br></span><span class="default">var_dump</span><span
+                                class="keyword">(</span><span class="default">$uri</span><span
+                                class="keyword">-&gt;</span><span class="default">getHost</span><span class="keyword">());<br></span><span
+                                class="comment">// string(7) "php.net"</span></span>
+                        </code>
                     </div>
                 </div>
 
