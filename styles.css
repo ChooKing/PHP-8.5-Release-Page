@@ -34,6 +34,9 @@ html{
     --color-text-secondary: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 2));
     --color-background-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 5));
     --color-text-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 0.2));
+    --color-code-keyword: hsl(232, 98%, 42%);
+    --color-code-string: hsl(25, 86%, 37%);
+    --color-code-comment: hsl(229, 7%, 48%);
 
 }
 #theme-toggle:checked + .theme-wrapper{
@@ -57,6 +60,9 @@ input::placeholder{
         --color-selected-lightness: 30%;
         --color-text-primary: hsl(var(--color-theme-primary-hue), 100%, calc(var(--color-background-main-lightness) * 5.6));
         --color-background-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 0.25));
+        --color-code-keyword: hsl(230, 79%, 74%);
+        --color-code-string: hsl(25, 90%, 63%);
+        --color-code-comment: hsl(231, 10%, 62%);
     }
     label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
@@ -66,6 +72,9 @@ input::placeholder{
         --color-selected-lightness: 40%;
         --color-text-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 0.2));
         --color-background-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 5));
+        --color-code-keyword: hsl(232, 98%, 42%);
+        --color-code-string: hsl(25, 86%, 37%);
+        --color-code-comment: hsl(229, 7%, 48%);
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/dark-mode.svg");
@@ -89,6 +98,9 @@ input::placeholder{
         --color-selected-lightness: 30%;
         --color-text-primary: hsl(var(--color-theme-primary-hue), 100%, calc(var(--color-background-main-lightness) * 5.6));
         --color-background-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 0.25));
+        --color-code-keyword: hsl(230, 79%, 74%);
+        --color-code-string: hsl(25, 90%, 63%);
+        --color-code-comment: hsl(231, 10%, 62%);
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
@@ -338,6 +350,22 @@ code{
     padding: 0.5rem 1rem;
     border: 1px solid blue;
     overflow-x: auto;
+}
+.phpcode span.default{
+    color: var(--color-text-primary);
+}
+.phpcode span.keyword{
+    font-weight: 600;
+    color: var(--color-code-keyword);
+}
+.phpcode span.string{
+    color: var(--color-code-string);
+}
+.phpcode span.comment{
+    color: var(--color-code-comment);
+}
+.phpcode span.number{
+
 }
 .phpcode:nth-child(even){
     margin-bottom: 1rem;
