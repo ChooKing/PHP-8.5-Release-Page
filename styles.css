@@ -7,6 +7,7 @@
 body{
     margin: 0;
     padding: 0;
+    background-color: hsl(0, 0%, 27%);
 }
 h1, h2, h3, h4, h5, h6{
     margin: 0;
@@ -338,11 +339,9 @@ h1 img{
     margin-bottom: -1px;
 }
 code{
-    font-family: "JetBrains Mono", monospace;
-    font-optical-sizing: auto;
+    font-family: "IBM Plex Mono", monospace;
     font-weight: 400;
     font-style: normal;
-
 }
 
 .phpcode{

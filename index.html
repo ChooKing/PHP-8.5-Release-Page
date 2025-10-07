@@ -7,8 +7,7 @@
     <title>php-net-8-5-release</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono&family=Zalando+Sans:ital,wght@0,300..900;1,300..500&display=swap"
-          rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Zalando+Sans:ital,wght@0,200..600;1,200..600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -129,7 +128,8 @@
 
                     <div class="code__label">PHP &ge; 8.5</div>
                     <div class="phpcode">
-                        <pre><code><span class="html"><span class="default"></span><span class="keyword">use </span><span
+                        <pre><code><span class="html"><span class="default"></span><span
+                                class="keyword">use </span><span
                                 class="default">Uri\Rfc3986\Uri</span><span class="keyword">;<br><br></span><span
                                 class="default">$uri </span><span class="keyword">= new </span><span
                                 class="default">Uri</span><span class="keyword">(</span><span class="string">"https://php.net/releases/8.5/en.php"</span><span
@@ -154,7 +154,8 @@
                 </header>
                 <div class="compare__code">
                     <div class="code__label">PHP &lt; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span class="keyword">final readonly class </span><span
+                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                            class="keyword">final readonly class </span><span
                             class="default">PhpVersion<br></span><span
                             class="keyword">{<br>    public function </span><span
                             class="default">__construct</span><span class="keyword">(<br>        public </span><span
@@ -180,7 +181,8 @@
                             class="keyword">);<br></span><span class="comment">// Fatal error: Uncaught Error: Cannot modify readonly property PhpVersion::$version</span></span></code></pre>
                     </div>
                     <div class="code__label">PHP &ge; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span class="keyword">final readonly class </span><span
+                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                            class="keyword">final readonly class </span><span
                             class="default">PhpVersion<br></span><span
                             class="keyword">{<br>    public function </span><span
                             class="default">__construct</span><span class="keyword">(<br>        public </span><span
@@ -206,7 +208,55 @@
                             class="default">var_dump</span><span class="keyword">(</span><span
                             class="default">$version</span><span class="keyword">-&gt;</span><span class="default">version</span><span
                             class="keyword">);<br></span><span
-                            class="comment">// string(7) "PHP 8.4"</span></span></code></pre></div>
+                            class="comment">// string(7) "PHP 8.4"</span></span></code></pre>
+                    </div>
+                </div>
+            </article>
+            <article class="feature">
+                <header>
+                    <h2 id="pipe_operator">
+                        Pipe operator <a class="php8-rfc" href="https://wiki.php.net/rfc/pipe-operator-v3">RFC</a>
+                    </h2>
+                    <div class="feature__description">
+
+                    </div>
+                </header>
+                <div class="compare__code">
+                    <div class="code__label">PHP &lt; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default">$input </span><span
+                            class="keyword">= </span><span class="string">' Some kind of string. '</span><span
+                            class="keyword">;<br><br></span><span class="default">$output </span><span
+                            class="keyword">= </span><span class="default">strtolower</span><span class="keyword">(<br>    </span><span
+                            class="default">str_replace</span><span class="keyword">([</span><span
+                            class="string">'.'</span><span class="keyword">, </span><span class="string">'/'</span><span
+                            class="keyword">, </span><span class="string">'…'</span><span
+                            class="keyword">], </span><span class="string">''</span><span class="keyword">,<br>        </span><span
+                            class="default">str_replace</span><span class="keyword">(</span><span
+                            class="string">' '</span><span class="keyword">, </span><span class="string">'-'</span><span
+                            class="keyword">,<br>            </span><span class="default">trim</span><span
+                            class="keyword">(</span><span class="default">$input</span><span class="keyword">)<br>        )<br>    )<br>);<br><br></span><span
+                            class="default">var_dump</span><span class="keyword">(</span><span
+                            class="default">$output</span><span class="keyword">);<br></span><span class="comment">// string(19) "some-kind-of-string"</span></span></code></pre>
+                    </div>
+                    <div class="code__label">PHP &ge; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default">$input </span><span
+                            class="keyword">= </span><span class="string">' Some kind of string. '</span><span
+                            class="keyword">;<br><br></span><span class="default">$output </span><span
+                            class="keyword">= </span><span class="default">$input<br>    </span><span class="keyword">|&gt; </span><span
+                            class="default">trim</span><span class="keyword">(...)<br>    |&gt; (fn(</span><span
+                            class="default">$string</span><span class="keyword">) =&gt; </span><span class="default">str_replace</span><span
+                            class="keyword">(</span><span class="string">' '</span><span class="keyword">, </span><span
+                            class="string">'-'</span><span class="keyword">, </span><span class="default">$string</span><span
+                            class="keyword">))<br>    |&gt; (fn(</span><span class="default">$string</span><span
+                            class="keyword">) =&gt; </span><span class="default">str_replace</span><span
+                            class="keyword">([</span><span class="string">'.'</span><span class="keyword">, </span><span
+                            class="string">'/'</span><span class="keyword">, </span><span class="string">'…'</span><span
+                            class="keyword">], </span><span class="string">''</span><span class="keyword">, </span><span
+                            class="default">$string</span><span class="keyword">))<br>    |&gt; </span><span
+                            class="default">strtolower</span><span class="keyword">(...);<br><br></span><span
+                            class="default">var_dump</span><span class="keyword">(</span><span
+                            class="default">$output</span><span class="keyword">);<br></span><span class="comment">// string(19) "some-kind-of-string"</span></span></code></pre>
+                    </div>
                 </div>
             </article>
         </section>
