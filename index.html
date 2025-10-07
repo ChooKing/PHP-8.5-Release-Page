@@ -116,7 +116,7 @@
                 <div class="compare__code">
                     <div class="code__label">PHP &lt; 8.5</div>
                     <div class="phpcode">
-                        <code><span class="html"><span class="default">$components </span><span
+                        <pre><code><span class="html"><span class="default">$components </span><span
                                 class="keyword">= </span><span class="default">parse_url</span><span
                                 class="keyword">(</span><span
                                 class="string">"https://php.net/releases/8.5/en.php"</span><span
@@ -124,12 +124,12 @@
                                 class="keyword">(</span><span class="default">$components</span><span
                                 class="keyword">[</span><span class="string">'host'</span><span class="keyword">]);<br></span><span
                                 class="comment">// string(7) "php.net"</span></span>
-                        </code>
+                        </code></pre>
                     </div>
 
                     <div class="code__label">PHP &ge; 8.5</div>
                     <div class="phpcode">
-                        <code><span class="html"><span class="default"></span><span class="keyword">use </span><span
+                        <pre><code><span class="html"><span class="default"></span><span class="keyword">use </span><span
                                 class="default">Uri\Rfc3986\Uri</span><span class="keyword">;<br><br></span><span
                                 class="default">$uri </span><span class="keyword">= new </span><span
                                 class="default">Uri</span><span class="keyword">(</span><span class="string">"https://php.net/releases/8.5/en.php"</span><span
@@ -137,10 +137,77 @@
                                 class="keyword">(</span><span class="default">$uri</span><span
                                 class="keyword">-&gt;</span><span class="default">getHost</span><span class="keyword">());<br></span><span
                                 class="comment">// string(7) "php.net"</span></span>
-                        </code>
+                        </code></pre>
                     </div>
                 </div>
 
+            </article>
+            <article class="feature">
+                <header>
+                    <h2 id="clone_with">
+                        Clone with v2 <a class="php8-rfc"
+                                         href="https://wiki.php.net/rfc/clone_with_v2">RFC</a>
+                    </h2>
+                    <div class="feature__description">
+
+                    </div>
+                </header>
+                <div class="compare__code">
+                    <div class="code__label">PHP &lt; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span class="keyword">final readonly class </span><span
+                            class="default">PhpVersion<br></span><span
+                            class="keyword">{<br>    public function </span><span
+                            class="default">__construct</span><span class="keyword">(<br>        public </span><span
+                            class="default">string $version </span><span class="keyword">= </span><span class="string">'PHP 8.4'</span><span
+                            class="keyword">,<br>    ) {}<br><br>    public function </span><span class="default">withVersion</span><span
+                            class="keyword">(</span><span class="default">string $version</span><span
+                            class="keyword">): </span><span class="default">self<br>    </span><span
+                            class="keyword">{<br>        </span><span class="default">$newObject </span><span
+                            class="keyword">= clone </span><span class="default">$this</span><span class="keyword">;<br>        </span><span
+                            class="default">$newObject</span><span class="keyword">-&gt;</span><span class="default">version </span><span
+                            class="keyword">= </span><span class="default">$version</span><span
+                            class="keyword">;<br><br>        return </span><span class="default">$newObject</span><span
+                            class="keyword">;<br>    }<br>}<br><br></span><span class="default">$version </span><span
+                            class="keyword">= new </span><span class="default">PhpVersion</span><span class="keyword">();<br><br></span><span
+                            class="default">var_dump</span><span class="keyword">(</span><span
+                            class="default">$version</span><span class="keyword">-&gt;</span><span class="default">version</span><span
+                            class="keyword">);<br></span><span
+                            class="comment">// string(7) "PHP 8.4"<br><br></span><span
+                            class="default">var_dump</span><span class="keyword">(</span><span
+                            class="default">$version</span><span class="keyword">-&gt;</span><span class="default">withVersion</span><span
+                            class="keyword">(</span><span class="string">'PHP 8.5'</span><span
+                            class="keyword">)-&gt;</span><span class="default">version</span><span
+                            class="keyword">);<br></span><span class="comment">// Fatal error: Uncaught Error: Cannot modify readonly property PhpVersion::$version</span></span></code></pre>
+                    </div>
+                    <div class="code__label">PHP &ge; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span class="keyword">final readonly class </span><span
+                            class="default">PhpVersion<br></span><span
+                            class="keyword">{<br>    public function </span><span
+                            class="default">__construct</span><span class="keyword">(<br>        public </span><span
+                            class="default">string $version </span><span class="keyword">= </span><span class="string">'PHP 8.4'</span><span
+                            class="keyword">,<br>    ) {}<br><br>    public function </span><span class="default">withVersion</span><span
+                            class="keyword">(</span><span class="default">string $version</span><span
+                            class="keyword">): </span><span class="default">self<br>    </span><span
+                            class="keyword">{<br>        return clone(</span><span class="default">$this</span><span
+                            class="keyword">, [<br>            </span><span class="string">'version' </span><span
+                            class="keyword">=&gt; </span><span class="default">$version</span><span
+                            class="keyword">,<br>        ]);<br>    }<br>}<br><br></span><span
+                            class="default">$version </span><span class="keyword">= new </span><span class="default">PhpVersion</span><span
+                            class="keyword">();<br><br></span><span class="default">var_dump</span><span
+                            class="keyword">(</span><span class="default">$version</span><span
+                            class="keyword">-&gt;</span><span class="default">version</span><span class="keyword">);<br></span><span
+                            class="comment">// string(7) "PHP 8.4"<br><br></span><span
+                            class="default">var_dump</span><span class="keyword">(</span><span
+                            class="default">$version</span><span class="keyword">-&gt;</span><span class="default">withVersion</span><span
+                            class="keyword">(</span><span class="string">'PHP 8.5'</span><span
+                            class="keyword">)-&gt;</span><span class="default">version</span><span
+                            class="keyword">);<br></span><span
+                            class="comment">// string(7) "PHP 8.5"<br><br></span><span
+                            class="default">var_dump</span><span class="keyword">(</span><span
+                            class="default">$version</span><span class="keyword">-&gt;</span><span class="default">version</span><span
+                            class="keyword">);<br></span><span
+                            class="comment">// string(7) "PHP 8.4"</span></span></code></pre></div>
+                </div>
             </article>
         </section>
     </main>
