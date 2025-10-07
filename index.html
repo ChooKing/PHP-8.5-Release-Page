@@ -7,7 +7,8 @@
     <title>php-net-8-5-release</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Zalando+Sans:ital,wght@0,200..600;1,200..600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;1,400&family=Zalando+Sans:ital,wght@0,200..600;1,200..600&display=swap"
+          rel="stylesheet">
     <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
@@ -256,6 +257,242 @@
                             class="default">strtolower</span><span class="keyword">(...);<br><br></span><span
                             class="default">var_dump</span><span class="keyword">(</span><span
                             class="default">$output</span><span class="keyword">);<br></span><span class="comment">// string(19) "some-kind-of-string"</span></span></code></pre>
+                    </div>
+                </div>
+            </article>
+            <article class="feature">
+                <header>
+                    <h2 id="no_discard">New <code>#[\NoDiscard]</code> Attribute <a class="php8-rfc"
+                                                                                    href="https://wiki.php.net/rfc/marking_return_value_as_important">RFC</a>
+                    </h2>
+                    <div class="feature__description">
+
+                    </div>
+                </header>
+                <div class="compare__code">
+                    <div class="code__label">PHP &lt; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                            class="keyword">function </span><span
+                            class="default">getPhpVersion</span><span class="keyword">(): </span><span class="default">string<br></span><span
+                            class="keyword">{<br>    return </span><span class="string">'PHP 8.4'</span><span
+                            class="keyword">;<br>}<br><br></span><span class="default">getPhpVersion</span><span
+                            class="keyword">(); </span><span class="comment">// No Errors</span></span></code></pre>
+                    </div>
+                    <div class="code__label">PHP &ge; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                            class="keyword">#[</span><span class="default">\NoDiscard</span><span class="keyword">]<br>function </span><span
+                            class="default">getPhpVersion</span><span class="keyword">(): </span><span class="default">string<br></span><span
+                            class="keyword">{<br>    return </span><span class="string">'PHP 8.5'</span><span
+                            class="keyword">;<br>}<br><br></span><span class="default">getPhpVersion</span><span
+                            class="keyword">();<br></span><span class="comment">// Warning: The return value of function getPhpVersion() should either be used or intentionally ignored by casting it as (void)</span></span></code></pre>
+                    </div>
+                </div>
+            </article>
+            <article class="feature">
+                <header>
+                    <h2 id="fcc_in_const_expr">First Class Callables in constant expressions <a class="php8-rfc"
+                                                                                                href="https://wiki.php.net/rfc/fcc_in_const_expr">RFC</a>
+                        <a class="php8-rfc" href="https://wiki.php.net/rfc/closures_in_const_expr">RFC</a>
+                    </h2>
+                    <div class="feature__description">
+
+                    </div>
+                </header>
+                <div class="compare__code">
+                    <div class="code__label">PHP &lt; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                            class="keyword">final class </span><span
+                            class="default">CalculatorTest </span><span class="keyword">extends </span><span
+                            class="default">\PHPUnit\Framework\TestCase<br></span><span
+                            class="keyword">{<br>    #[</span><span class="default">DataProvider</span><span
+                            class="keyword">(</span><span class="string">'subtractionProvider'</span><span
+                            class="keyword">)]<br>    public function </span><span
+                            class="default">testSubtraction</span><span class="keyword">(<br>        </span><span
+                            class="default">int $minuend</span><span class="keyword">,<br>        </span><span
+                            class="default">int $subtrahend</span><span class="keyword">,<br>        </span><span
+                            class="default">int $result<br>    </span><span class="keyword">): </span><span
+                            class="default">void<br>    </span><span class="keyword">{<br>        </span><span
+                            class="default">$this</span><span class="keyword">-&gt;</span><span class="default">assertSame</span><span
+                            class="keyword">(<br>            </span><span class="default">$result</span><span
+                            class="keyword">,<br>            </span><span class="default">Calculator</span><span
+                            class="keyword">::</span><span class="default">subtract</span><span class="keyword">(</span><span
+                            class="default">$minuend</span><span class="keyword">, </span><span class="default">$subtrahend</span><span
+                            class="keyword">)<br>        );<br>    }<br><br>    public static function </span><span
+                            class="default">subtractionProvider</span><span class="keyword">(): </span><span
+                            class="default">iterable<br>    </span><span class="keyword">{<br>        for (</span><span
+                            class="default">$i </span><span class="keyword">= -</span><span
+                            class="default">10</span><span class="keyword">; </span><span
+                            class="default">$i </span><span class="keyword">&lt;= </span><span class="default">10</span><span
+                            class="keyword">; </span><span class="default">$i</span><span class="keyword">++) {<br>            yield [</span><span
+                            class="default">$i</span><span class="keyword">, </span><span class="default">$i</span><span
+                            class="keyword">, </span><span class="default">0</span><span class="keyword">];<br>            yield [</span><span
+                            class="default">$i</span><span class="keyword">, </span><span class="default">0</span><span
+                            class="keyword">, </span><span class="default">$i</span><span class="keyword">];<br>            yield [</span><span
+                            class="default">0</span><span class="keyword">, </span><span class="default">$i</span><span
+                            class="keyword">, -</span><span class="default">$i</span><span class="keyword">];<br>        }<br>    }<br>}</span></span></code></pre>
+                    </div>
+                    <div class="code__label">PHP &ge; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                            class="keyword">final class </span><span
+                            class="default">CalculatorTest<br></span><span class="keyword">{<br>    #[</span><span
+                            class="default">Test\CaseGenerator</span><span
+                            class="keyword">(static function (): </span><span class="default">iterable </span><span
+                            class="keyword">{<br>        for (</span><span class="default">$i </span><span
+                            class="keyword">= -</span><span class="default">10</span><span
+                            class="keyword">; </span><span class="default">$i </span><span class="keyword">&lt;= </span><span
+                            class="default">10</span><span class="keyword">; </span><span class="default">$i</span><span
+                            class="keyword">++) {<br>            yield [</span><span class="default">$i</span><span
+                            class="keyword">, </span><span class="default">$i</span><span class="keyword">, </span><span
+                            class="default">0</span><span class="keyword">];<br>            yield [</span><span
+                            class="default">$i</span><span class="keyword">, </span><span class="default">0</span><span
+                            class="keyword">, </span><span class="default">$i</span><span class="keyword">];<br>            yield [</span><span
+                            class="default">0</span><span class="keyword">, </span><span class="default">$i</span><span
+                            class="keyword">, -</span><span class="default">$i</span><span class="keyword">];<br>        }<br>    })]<br>    public function </span><span
+                            class="default">testSubtraction</span><span class="keyword">(<br>        </span><span
+                            class="default">int $minuend</span><span class="keyword">,<br>        </span><span
+                            class="default">int $subtrahend</span><span class="keyword">,<br>        </span><span
+                            class="default">int $result<br>    </span><span
+                            class="keyword">)<br>    {<br>        </span><span class="default">\assert</span><span
+                            class="keyword">(<br>            </span><span class="default">Calculator</span><span
+                            class="keyword">::</span><span class="default">subtract</span><span class="keyword">(</span><span
+                            class="default">$minuend</span><span class="keyword">, </span><span class="default">$subtrahend</span><span
+                            class="keyword">) === </span><span class="default">$result<br>        </span><span
+                            class="keyword">);<br>    }<br>}</span></span></code></pre>
+                    </div>
+                </div>
+            </article>
+            <article class="feature">
+                <header>
+                    <h2 id="curl_share_persistence_improvement">Persistent cURL share handle improvement
+                        <a class="php8-rfc" href="https://wiki.php.net/rfc/curl_share_persistence">RFC</a>
+                        <a class="php8-rfc" href="https://wiki.php.net/rfc/curl_share_persistence_improvement">RFC</a>
+                    </h2>
+                    <div class="feature__description">
+                        New <code>CurlSharePersistentHandle</code> class, <code>curl_multi_get_handles()</code>, <code>curl_share_init_persistent()</code>
+                        functions are available.
+                    </div>
+                </header>
+                <div class="compare__code">
+                    <div class="code__label">PHP &lt; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default">$sh </span><span
+                            class="keyword">= </span><span class="default">curl_share_init</span><span class="keyword">();<br></span><span
+                            class="default">curl_share_setopt</span><span class="keyword">(</span><span class="default">$sh</span><span
+                            class="keyword">, </span><span class="default">CURLSHOPT_SHARE</span><span
+                            class="keyword">, </span><span class="default">CURL_LOCK_DATA_DNS</span><span
+                            class="keyword">);<br></span><span class="default">curl_share_setopt</span><span
+                            class="keyword">(</span><span class="default">$sh</span><span class="keyword">, </span><span
+                            class="default">CURLSHOPT_SHARE</span><span class="keyword">, </span><span class="default">CURL_LOCK_DATA_CONNECT</span><span
+                            class="keyword">);<br><br></span><span class="default">$ch1 </span><span
+                            class="keyword">= </span><span class="default">curl_init</span><span
+                            class="keyword">(</span><span class="string">'https://php.net/'</span><span class="keyword">);<br></span><span
+                            class="default">curl_setopt</span><span class="keyword">(</span><span
+                            class="default">$ch1</span><span class="keyword">, </span><span class="default">CURLOPT_SHARE</span><span
+                            class="keyword">, </span><span class="default">$sh</span><span class="keyword">);<br></span><span
+                            class="default">curl_exec</span><span class="keyword">(</span><span
+                            class="default">$ch1</span><span class="keyword">);<br><br></span><span
+                            class="default">$ch2 </span><span class="keyword">= </span><span
+                            class="default">curl_init</span><span class="keyword">(</span><span class="string">'https://thephp.foundation/'</span><span
+                            class="keyword">);<br></span><span class="default">curl_setopt</span><span
+                            class="keyword">(</span><span class="default">$ch2</span><span
+                            class="keyword">, </span><span class="default">CURLOPT_SHARE</span><span
+                            class="keyword">, </span><span class="default">$sh</span><span class="keyword">);<br></span><span
+                            class="default">curl_exec</span><span class="keyword">(</span><span
+                            class="default">$ch2</span><span class="keyword">);</span></span></code></pre>
+                    </div>
+                    <div class="code__label">PHP &ge; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default">$sh </span><span
+                            class="keyword">= </span><span class="default">curl_share_init_persistent</span><span
+                            class="keyword">([<br>    </span><span class="default">CURL_LOCK_DATA_DNS</span><span
+                            class="keyword">,<br>    </span><span class="default">CURL_LOCK_DATA_CONNECT<br></span><span
+                            class="keyword">]);<br><br></span><span class="default">$ch1 </span><span
+                            class="keyword">= </span><span class="default">curl_init</span><span
+                            class="keyword">(</span><span class="string">'https://php.net/'</span><span
+                            class="keyword">);<br></span><span class="default">curl_setopt</span><span
+                            class="keyword">(</span><span class="default">$ch1</span><span
+                            class="keyword">, </span><span
+                            class="default">CURLOPT_SHARE</span><span class="keyword">, </span><span
+                            class="default">$sh</span><span class="keyword">);<br></span><span
+                            class="default">curl_exec</span><span class="keyword">(</span><span
+                            class="default">$ch1</span><span class="keyword">);<br><br></span><span
+                            class="default">$ch2 </span><span class="keyword">= </span><span
+                            class="default">curl_init</span><span class="keyword">(</span><span class="string">'https://thephp.foundation/'</span><span
+                            class="keyword">);<br></span><span class="default">curl_setopt</span><span
+                            class="keyword">(</span><span class="default">$ch2</span><span
+                            class="keyword">, </span><span
+                            class="default">CURLOPT_SHARE</span><span class="keyword">, </span><span
+                            class="default">$sh</span><span class="keyword">);<br></span><span
+                            class="default">curl_exec</span><span class="keyword">(</span><span
+                            class="default">$ch2</span><span class="keyword">);</span></span></code></pre>
+                    </div>
+                </div>
+            </article>
+            <article class="feature">
+                <header>
+                    <h2 id="array_first_last">New <code>array_first()</code> and <code>array_last()</code> functions
+                        <a class="php8-rfc" href="https://wiki.php.net/rfc/array_first_last">RFC</a>
+                    </h2>
+                    <div class="feature__description">
+
+                    </div>
+                </header>
+                <div class="compare__code">
+                    <div class="code__label">PHP &lt; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default">$php </span><span
+                            class="keyword">= [<br>    </span><span class="string">'php-82' </span><span
+                            class="keyword">=&gt; [</span><span class="string">'state' </span><span class="keyword">=&gt; </span><span
+                            class="string">'security'</span><span class="keyword">, </span><span
+                            class="string">'branch' </span><span class="keyword">=&gt; </span><span class="string">'PHP-8.2'</span><span
+                            class="keyword">],<br>    </span><span class="string">'php-83' </span><span class="keyword">=&gt; [</span><span
+                            class="string">'state' </span><span class="keyword">=&gt; </span><span class="string">'active'</span><span
+                            class="keyword">, </span><span class="string">'branch' </span><span
+                            class="keyword">=&gt; </span><span class="string">'PHP-8.3'</span><span
+                            class="keyword">],<br>    </span><span class="string">'php-84' </span><span class="keyword">=&gt; [</span><span
+                            class="string">'state' </span><span class="keyword">=&gt; </span><span class="string">'active'</span><span
+                            class="keyword">, </span><span class="string">'branch' </span><span
+                            class="keyword">=&gt; </span><span class="string">'PHP-8.4'</span><span
+                            class="keyword">],<br>    </span><span class="string">'php-85' </span><span class="keyword">=&gt; [</span><span
+                            class="string">'state' </span><span class="keyword">=&gt; </span><span class="string">'upcoming'</span><span
+                            class="keyword">, </span><span class="string">'branch' </span><span
+                            class="keyword">=&gt; </span><span class="string">'PHP-8.5'</span><span
+                            class="keyword">],<br>];<br><br></span><span class="default">$upcomingRelease </span><span
+                            class="keyword">= </span><span class="default">null</span><span class="keyword">;<br>foreach (</span><span
+                            class="default">$php </span><span class="keyword">as </span><span
+                            class="default">$key </span><span class="keyword">=&gt; </span><span class="default">$version</span><span
+                            class="keyword">) {<br>    if (</span><span class="default">$version</span><span
+                            class="keyword">[</span><span class="string">'state'</span><span
+                            class="keyword">] === </span><span class="string">'upcoming'</span><span class="keyword">) {<br>        </span><span
+                            class="default">$upcomingRelease </span><span class="keyword">= </span><span
+                            class="default">$version</span><span
+                            class="keyword">;<br>        break;<br>    }<br>}<br><br></span><span class="default">var_dump</span><span
+                            class="keyword">(</span><span class="default">$upcomingRelease</span><span class="keyword">);</span></span></code></pre>
+                    </div>
+                    <div class="code__label">PHP &ge; 8.5</div>
+                    <div class="phpcode"><pre><code><span class="html"><span class="default">$php </span><span
+                            class="keyword">= [<br>    </span><span class="string">'php-82' </span><span
+                            class="keyword">=&gt; [</span><span class="string">'state' </span><span class="keyword">=&gt; </span><span
+                            class="string">'security'</span><span class="keyword">, </span><span
+                            class="string">'branch' </span><span class="keyword">=&gt; </span><span class="string">'PHP-8.2'</span><span
+                            class="keyword">],<br>    </span><span class="string">'php-83' </span><span class="keyword">=&gt; [</span><span
+                            class="string">'state' </span><span class="keyword">=&gt; </span><span class="string">'active'</span><span
+                            class="keyword">, </span><span class="string">'branch' </span><span
+                            class="keyword">=&gt; </span><span class="string">'PHP-8.3'</span><span
+                            class="keyword">],<br>    </span><span class="string">'php-84' </span><span class="keyword">=&gt; [</span><span
+                            class="string">'state' </span><span class="keyword">=&gt; </span><span class="string">'active'</span><span
+                            class="keyword">, </span><span class="string">'branch' </span><span
+                            class="keyword">=&gt; </span><span class="string">'PHP-8.4'</span><span
+                            class="keyword">],<br>    </span><span class="string">'php-85' </span><span class="keyword">=&gt; [</span><span
+                            class="string">'state' </span><span class="keyword">=&gt; </span><span class="string">'upcoming'</span><span
+                            class="keyword">, </span><span class="string">'branch' </span><span
+                            class="keyword">=&gt; </span><span class="string">'PHP-8.5'</span><span
+                            class="keyword">],<br>];<br><br></span><span class="default">$upcomingRelease </span><span
+                            class="keyword">= </span><span class="default">array_first</span><span class="keyword">(<br>    </span><span
+                            class="default">array_filter</span><span class="keyword">(<br>        </span><span
+                            class="default">$php</span><span class="keyword">,<br>        static fn(</span><span
+                            class="default">$version</span><span class="keyword">) =&gt; </span><span class="default">$version</span><span
+                            class="keyword">[</span><span class="string">'state'</span><span
+                            class="keyword">] === </span><span class="string">'upcoming'<br>    </span><span
+                            class="keyword">)<br>);<br><br></span><span class="default">var_dump</span><span
+                            class="keyword">(</span><span class="default">$upcomingRelease</span><span class="keyword">);</span></span></code></pre>
                     </div>
                 </div>
             </article>
