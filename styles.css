@@ -19,22 +19,18 @@ html{
 }
 /* Color/Theme setup */
 .theme-wrapper{
-    --color-theme-primary-hue: 229deg;
-    --color-theme-primary-lightness: 44%;
-    --color-theme-primary-saturation: 30%;
-    --color-theme-primary: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-theme-primary-lightness));
-    /*--color-theme-secondary: hsl(321, 37%, 35%);*/
-    --color-theme-secondary-hue: 321deg;
-    --color-theme-secondary-lightness: 37%;
-    --color-theme-secondary-saturation: 35%;
-    --color-theme-secondary: hsl(var(--color-theme-secondary-hue), var(--color-theme-secondary-saturation), var(--color-theme-secondary-lightness));
-    --color-background-main-lightness: var(--color-theme-primary-lightness);
-    --color-placeholder: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 1.5));
-    --color-selected-lightness: 40%;
-    --color-background-selected: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-selected-lightness));
-    --color-text-secondary: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 2));
-    --color-background-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 5));
-    --color-text-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 0.2));
+    --color-brand-light: hsl(229deg, 30%, 44%);
+    --color-brand-dark: hsl(229deg, 30%, 17%);
+    --color-brand: var(--color-brand-light);
+    --color-background-main-light: white;
+    --color-background-main-dark: hsl(229deg, 90%, 4%);
+    --color-background-main: var(--color-background-main-light);
+    --color-accent-light: hsl(321, 37%, 35%);
+    --color-placeholder: hsl(229deg, 30%, 66%);
+    --color-background-selected: hsl(229deg, 30%, 40%);
+    --color-text-secondary: hsl(229deg, 30%, 88%);
+
+    --color-text-primary: hsl(229deg, calc(30% * 3), 8.8%);
     --color-code-keyword: hsl(232, 98%, 42%);
     --color-code-string: hsl(25, 86%, 37%);
     --color-code-comment: hsl(229, 7%, 48%);
@@ -57,10 +53,9 @@ input::placeholder{
         color-scheme: light;
     }
     .theme-wrapper{
-        --color-background-main-lightness: 17%;
-        --color-selected-lightness: 30%;
-        --color-text-primary: hsl(var(--color-theme-primary-hue), 100%, calc(var(--color-background-main-lightness) * 5.6));
-        --color-background-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 0.25));
+        --color-brand: var(--color-brand-dark);
+        --color-text-primary: hsl(229deg, 100%, calc(17% * 5.6));
+        --color-background-main: var(--color-background-main-dark);
         --color-code-keyword: hsl(230, 79%, 74%);
         --color-code-string: hsl(25, 90%, 63%);
         --color-code-comment: hsl(231, 10%, 62%);
@@ -69,10 +64,10 @@ input::placeholder{
         background-image: url("/images/icons/light-mode.svg");
     }
     #theme-toggle:checked + .theme-wrapper{
-        --color-background-main-lightness: var(--color-theme-primary-lightness);
+        --color-brand: var(--color-brand-light);
         --color-selected-lightness: 40%;
-        --color-text-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 0.2));
-        --color-background-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 5));
+        --color-text-primary: hsl(229deg, calc(30% * 3), calc(44% * 0.2));
+        --color-background-main: var(--color-background-main-light);
         --color-code-keyword: hsl(232, 98%, 42%);
         --color-code-string: hsl(25, 86%, 37%);
         --color-code-comment: hsl(229, 7%, 48%);
@@ -95,10 +90,9 @@ input::placeholder{
         background-image: url("/images/icons/dark-mode.svg");
     }
     #theme-toggle:checked + .theme-wrapper{
-        --color-background-main-lightness: 17%;
-        --color-selected-lightness: 30%;
-        --color-text-primary: hsl(var(--color-theme-primary-hue), 100%, calc(var(--color-background-main-lightness) * 5.6));
-        --color-background-primary: hsl(var(--color-theme-primary-hue), calc(var(--color-theme-primary-saturation) * 3), calc(var(--color-background-main-lightness) * 0.25));
+        --color-brand: var(--color-brand-dark);
+        --color-text-primary: hsl(229deg, 100%, 100%);
+        --color-background-main: var(--color-background-main-dark);
         --color-code-keyword: hsl(230, 79%, 74%);
         --color-code-string: hsl(25, 90%, 63%);
         --color-code-comment: hsl(231, 10%, 62%);
@@ -123,7 +117,7 @@ label[for="theme-toggle"]{
 /* Nav Section */
 
 .nav__wrapper{
-    background-color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-background-main-lightness));
+    background-color: var(--color-brand);
     max-width: 1500px;
     margin: 0 auto;
     padding-bottom: 0.5rem;
@@ -193,9 +187,9 @@ nav {
     gap: 1rem;
     position: fixed;
     top: 3rem;
-    border: 1px solid hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 1.5));
+    border: 1px solid hsl(229deg, 30%, calc(44% * 1.5));
 
-    background-color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-background-main-lightness));
+    background-color: var(--color-brand);
 }
 #nav-toggle:checked + nav .navbar__nav{
     display: flex;
@@ -222,7 +216,7 @@ nav {
     display: flex;
     align-items: center;
     gap: 0.2rem;
-    border: 1px solid hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), calc(var(--color-theme-primary-lightness) * 1.5));
+    border: 1px solid hsl(229deg, 30%, calc(44% * 1.5));
     padding: 0.5rem;
     border-radius: 1rem;
     color: white;
@@ -237,7 +231,7 @@ nav {
 
 /* Heads Up */
 .headsup{
-    background-color: var(--color-theme-secondary);
+    background-color: var(--color-accent-light);
     max-width: 1500px;
     margin: 0 auto;
     padding: 0.5rem 1rem;
@@ -256,10 +250,12 @@ main{
     max-width: 1500px;
     margin: 0 auto;
 }
+main section{
+    padding: 1rem;
+}
 /* Hero */
 .hero{
-    padding: 1rem;
-    background-color: hsl(var(--color-theme-primary-hue), var(--color-theme-primary-saturation), var(--color-background-main-lightness));
+    background-color: var(--color-brand);
     color: var(--color-text-secondary);
 }
 h1{
@@ -290,7 +286,7 @@ h1 img{
 .link-button{
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: var(--color-theme-secondary);
+    background-color: var(--color-accent-light);
     color: white;
     text-decoration: none;
     border-radius: 1rem;
@@ -303,8 +299,7 @@ h1 img{
 }
 /* New Features */
 .new-features{
-    padding: 1rem;
-    background-color: var(--color-background-primary);
+    background-color: var(--color-background-main);
     color: var(--color-text-secondary);
 }
 .feature{
@@ -372,8 +367,9 @@ code{
 /* Changelog*/
 .changelog{
     padding: 1rem;
-    background-color: var(--color-background-primary);
-    color: var(--color-text-secondary);
+    background-color: var(--color-background-main);
+    color: var(--color-text-primary);
+
 }
 .changelog h2{
     text-align: center;
@@ -382,13 +378,16 @@ code{
     text-decoration-thickness: 0.1rem;
     text-underline-offset: 0.3rem;
 }
+.changed-items{
+    padding: 0 1rem;
+}
 .changed-items li{
     margin-bottom: 0.75rem;
     padding-left: 0.5rem;
     list-style-type: "\2714";
 }
 .changed-items li::marker{
-    color: var(--color-theme-secondary);
+    color: var(--color-accent-light);
 }
 .no-deprecations{
     text-align: center;
