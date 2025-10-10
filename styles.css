@@ -25,12 +25,24 @@ html{
     --color-background-main-light: white;
     --color-background-main-dark: hsl(229deg, 90%, 4%);
     --color-background-main: var(--color-background-main-light);
-    --color-accent-light: hsl(321, 37%, 35%);
+    --color-text-primary-light: hsl(229deg, 90%, 8.8%);
+    --color-text-primary-dark: hsl(229deg, 100%, 95.2%);
+    --color-text-primary: var(--color-text-primary-light);
+    --color-attention-background-light: hsl(181, 69%, 45%);
+    --color-attention-background-dark: hsl(181, 69%, 25%);
+    --color-attention-background: var(--color-attention-background-light);
+    --color-attention-text-light: hsl(220, 88%, 3%);
+    --color-attention-text-dark: hsl(220, 88%, 95%);
+
+    --color-attention-text: var(--color-attention-text-light);
+
+
+
     --color-placeholder: hsl(229deg, 30%, 66%);
     --color-background-selected: hsl(229deg, 30%, 40%);
     --color-text-secondary: hsl(229deg, 30%, 88%);
 
-    --color-text-primary: hsl(229deg, calc(30% * 3), 8.8%);
+
     --color-code-keyword: hsl(232, 98%, 42%);
     --color-code-string: hsl(25, 86%, 37%);
     --color-code-comment: hsl(229, 7%, 48%);
@@ -54,8 +66,12 @@ input::placeholder{
     }
     .theme-wrapper{
         --color-brand: var(--color-brand-dark);
-        --color-text-primary: hsl(229deg, 100%, calc(17% * 5.6));
+        --color-text-primary: var(--color-text-primary-dark);
         --color-background-main: var(--color-background-main-dark);
+        --color-attention-background: var(--color-attention-background-dark);
+        --color-attention-text: var(--color-attention-text-dark);
+
+
         --color-code-keyword: hsl(230, 79%, 74%);
         --color-code-string: hsl(25, 90%, 63%);
         --color-code-comment: hsl(231, 10%, 62%);
@@ -66,8 +82,12 @@ input::placeholder{
     #theme-toggle:checked + .theme-wrapper{
         --color-brand: var(--color-brand-light);
         --color-selected-lightness: 40%;
-        --color-text-primary: hsl(229deg, calc(30% * 3), calc(44% * 0.2));
+        --color-text-primary: var(--color-text-primary-light);
         --color-background-main: var(--color-background-main-light);
+        --color-attention-background: var(--color-attention-background-light);
+        --color-attention-text: var(--color-attention-text-light);
+
+
         --color-code-keyword: hsl(232, 98%, 42%);
         --color-code-string: hsl(25, 86%, 37%);
         --color-code-comment: hsl(229, 7%, 48%);
@@ -91,11 +111,13 @@ input::placeholder{
     }
     #theme-toggle:checked + .theme-wrapper{
         --color-brand: var(--color-brand-dark);
-        --color-text-primary: hsl(229deg, 100%, 100%);
+        --color-text-primary: var(--color-text-primary-dark);
         --color-background-main: var(--color-background-main-dark);
         --color-code-keyword: hsl(230, 79%, 74%);
         --color-code-string: hsl(25, 90%, 63%);
         --color-code-comment: hsl(231, 10%, 62%);
+        --color-attention-background: var(--color-attention-background-dark);
+        --color-attention-text: var(--color-attention-text-dark);
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
@@ -231,7 +253,8 @@ nav {
 
 /* Heads Up */
 .headsup{
-    background-color: var(--color-accent-light);
+    background-color: var(--color-attention-background);
+    color: var(--color-attention-text);
     max-width: 1500px;
     margin: 0 auto;
     padding: 0.5rem 1rem;
@@ -242,7 +265,7 @@ nav {
     text-align: center;
 }
 .headsup a{
-    color: white;
+    color: var(--color-attention-text);
     text-decoration: none;
 }
 /* Main */
@@ -286,8 +309,8 @@ h1 img{
 .link-button{
     display: inline-block;
     padding: 0.5rem 1rem;
-    background-color: var(--color-accent-light);
-    color: white;
+    background-color: var(--color-attention-background);
+    color: var(--color-attention-text);
     text-decoration: none;
     border-radius: 1rem;
 }
@@ -387,7 +410,7 @@ code{
     list-style-type: "\2714";
 }
 .changed-items li::marker{
-    color: var(--color-accent-light);
+    color: var(--color-attention-background-light);
 }
 .no-deprecations{
     text-align: center;
