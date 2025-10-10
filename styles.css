@@ -369,6 +369,32 @@ code{
 .phpcode:nth-child(even){
     margin-bottom: 1rem;
 }
+/* Changelog*/
+.changelog{
+    padding: 1rem;
+    background-color: var(--color-background-primary);
+    color: var(--color-text-secondary);
+}
+.changelog h2{
+    text-align: center;
+    margin-bottom: 0.5rem;
+    text-decoration: underline;
+    text-decoration-thickness: 0.1rem;
+    text-underline-offset: 0.3rem;
+}
+.changed-items li{
+    margin-bottom: 0.75rem;
+    padding-left: 0.5rem;
+    list-style-type: "\2714";
+}
+.changed-items li::marker{
+    color: var(--color-theme-secondary);
+}
+.no-deprecations{
+    text-align: center;
+    font-size: 1.5rem;
+    font-style: italic;
+}
 @media screen and (min-width: 480px){
     .phpcode{
         overflow-x: unset;
@@ -430,6 +456,10 @@ code{
         grid-auto-flow: column;
         gap: 0 1rem;
     }
-
+    .changed-items{
+        column-count: 2;
+        column-gap: 2rem;
+        orphans: 3;
+    }
 
 }
