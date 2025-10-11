@@ -28,7 +28,7 @@ html{
     --color-text-primary-light: hsl(229deg, 90%, 8.8%);
     --color-text-primary-dark: hsl(229deg, 100%, 95.2%);
     --color-text-primary: var(--color-text-primary-light);
-    --color-background-attention-light: hsl(166, 63%, 55%);
+    --color-background-attention-light: hsl(166, 46%, 54%);
     --color-background-attention-dark: hsl(166, 69%, 25%);
     --color-background-attention: var(--color-background-attention-light);
     --color-text-attention-light: hsl(220, 88%, 3%);
@@ -43,13 +43,13 @@ html{
     --color-background-faded-light: hsl(230, 10%, 82%);
     --color-background-faded-dark: hsl(229deg, 10%, 10%);
     --color-background-faded: var(--color-background-faded-light);
-
-
-
-
     --color-code-keyword: hsl(232, 98%, 42%);
     --color-code-string: hsl(25, 86%, 37%);
     --color-code-comment: hsl(229, 7%, 48%);
+    --color-border-code-light: hsl(229deg, 30%, 80%);
+    --color-border-code-dark: hsl(229deg, 30%, 20%);
+    --color-border-code: var(--color-border-code-light);
+
 
 }
 #theme-toggle:checked + .theme-wrapper{
@@ -364,20 +364,20 @@ h1 img{
 }
 .code__label, .phpcode{
     padding: 0.25rem;
+    border: 1px solid var(--color-border-code);
 }
 .code__label{
     /*border-radius: 0.75rem 0.75rem 0 0;*/
     padding: 0.5rem 1rem;
     width: fit-content;
-    border: 1px solid blue;
     margin-bottom: -1px;
 }
 .code__label:nth-child(1){
     background-color: var(--color-background-faded);
 }
 .code__label:nth-child(3){
-    background-color: var(--color-brand);
-    color: var(--color-text-secondary);
+    background-color: var(--color-background-attention);
+    color: var(--color-text-attention);
 }
 code{
     font-family: "IBM Plex Mono", monospace;
@@ -388,7 +388,6 @@ code{
 .phpcode{
     /*border-radius: 0 0.75rem 0.75rem 0.75rem;*/
     padding: 0.5rem 1rem;
-    border: 1px solid blue;
     overflow-x: auto;
 }
 .phpcode span.default{
