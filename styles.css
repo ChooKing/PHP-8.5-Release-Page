@@ -31,14 +31,27 @@ html{
     --color-background-attention-light: hsl(166, 46%, 54%);
     --color-background-attention-dark: hsl(166, 69%, 25%);
     --color-background-attention: var(--color-background-attention-light);
+    --gradient-attention-light: linear-gradient(hsl(166, 69%, 35%), hsl(166, 46%, 64%), hsl(166, 69%, 30%));
+    --gradient-attention-dark: linear-gradient(hsl(166, 69%, 25%), hsl(166, 46%, 44%), hsl(166, 69%, 20%));
+    --gradient-attention: var(--gradient-attention-light);
+
+
     --color-text-attention-light: hsl(220, 88%, 3%);
     --color-text-attention-dark: hsl(220, 88%, 95%);
     --color-text-attention: var(--color-text-attention-light);
+
+
+    --color-text-shadow-light: hsl(224, 5%, 43%);
+    --color-text-shadow-dark: hsl(233, 19%, 8%);
+    --color-text-shadow: var(--color-text-shadow-light);
+
+
+
     --color-text-placeholder: hsl(229deg, 30%, 66%);
     --color-background-selected: hsl(229deg, 30%, 40%);
     --color-text-secondary: hsl(229deg, 20%, 92%);
     --color-background-shadow-light: hsl(229, 23%, 91%);
-    --color-background-shadow-dark: hsl(229deg, 50%, 8%);
+    --color-background-shadow-dark: hsl(229deg, 50%, 15%);
     --color-background-shadow: var(--color-background-shadow-light);
     --color-background-faded-light: hsl(230, 10%, 82%);
     --color-background-faded-dark: hsl(229deg, 10%, 10%);
@@ -79,6 +92,9 @@ input::placeholder{
         --color-code-string: hsl(25, 90%, 63%);
         --color-code-comment: hsl(231, 10%, 62%);
         --color-background-faded: var(--color-background-faded-dark);
+        --color-text-shadow: var(--color-text-shadow-dark);
+        --gradient-attention: var(--gradient-attention-dark);
+
     }
     label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
@@ -92,6 +108,8 @@ input::placeholder{
         --color-text-attention: var(--color-text-attention-light);
         --color-background-shadow: var(--color-background-shadow-light);
         --color-background-faded: var(--color-background-faded-light);
+        --color-text-shadow: var(--color-text-shadow-light);
+        --gradient-attention: var(--gradient-attention-light);
 
         --color-code-keyword: hsl(232, 98%, 42%);
         --color-code-string: hsl(25, 86%, 37%);
@@ -125,6 +143,8 @@ input::placeholder{
         --color-text-attention: var(--color-text-attention-dark);
         --color-background-shadow: var(--color-background-shadow-dark);
         --color-background-faded: var(--color-background-faded-dark);
+        --color-text-shadow: var(--color-text-shadow-dark);
+        --gradient-attention: var(--gradient-attention-dark);
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
@@ -317,15 +337,24 @@ h1 img{
     display: block;
     width: fit-content;
     margin: 1rem auto;
-    padding: 0.5rem 1rem;
+    padding: 1rem;
     background-color: var(--color-background-attention);
+    background-image: var(--gradient-attention);
     color: var(--color-text-attention);
     text-decoration: none;
+    text-shadow: 1px 1px 2px var(--color-text-shadow);
     font-size: 1.2rem;
     font-weight: 500;
     font-style: normal;
     font-variation-settings: "wdth" 500;
     border-radius: 1rem;
+    box-shadow: -1px -1px 2px 1px #ffffff88, 2px 2px 2px 1px #000000BB;
+    transition: filter 0.2s ease-in-out;
+
+}
+.link-button:hover{
+    outline: 3px solid #ffffff44;
+    filter: brightness(1.1) contrast(1.1);
 }
 .php8-section__content .link-button{
     font-size: 1.2rem;
