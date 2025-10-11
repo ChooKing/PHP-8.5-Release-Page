@@ -33,15 +33,13 @@ html{
     --color-attention-background: var(--color-attention-background-light);
     --color-attention-text-light: hsl(220, 88%, 3%);
     --color-attention-text-dark: hsl(220, 88%, 95%);
-
     --color-attention-text: var(--color-attention-text-light);
-
-
-
     --color-placeholder: hsl(229deg, 30%, 66%);
     --color-background-selected: hsl(229deg, 30%, 40%);
     --color-text-secondary: hsl(229deg, 30%, 88%);
-
+    --color-background-shadow-light: hsl(229, 23%, 91%);
+    --color-background-shadow-dark: hsl(229deg, 50%, 8%);
+    --color-background-shadow: var(--color-background-shadow-light);
 
     --color-code-keyword: hsl(232, 98%, 42%);
     --color-code-string: hsl(25, 86%, 37%);
@@ -70,8 +68,7 @@ input::placeholder{
         --color-background-main: var(--color-background-main-dark);
         --color-attention-background: var(--color-attention-background-dark);
         --color-attention-text: var(--color-attention-text-dark);
-
-
+        --color-background-shadow: var(--color-background-shadow-dark);
         --color-code-keyword: hsl(230, 79%, 74%);
         --color-code-string: hsl(25, 90%, 63%);
         --color-code-comment: hsl(231, 10%, 62%);
@@ -86,6 +83,7 @@ input::placeholder{
         --color-background-main: var(--color-background-main-light);
         --color-attention-background: var(--color-attention-background-light);
         --color-attention-text: var(--color-attention-text-light);
+        --color-background-shadow: var(--color-background-shadow-light);
 
 
         --color-code-keyword: hsl(232, 98%, 42%);
@@ -118,6 +116,7 @@ input::placeholder{
         --color-code-comment: hsl(231, 10%, 62%);
         --color-attention-background: var(--color-attention-background-dark);
         --color-attention-text: var(--color-attention-text-dark);
+        --color-background-shadow: var(--color-background-shadow-dark);
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
@@ -328,13 +327,14 @@ h1 img{
 }
 /* New Features */
 .new-features{
-    background-color: var(--color-background-main);
+    background-color: var(--color-background-shadow);
     color: var(--color-text-secondary);
 }
 .feature{
     margin: 1rem 0;
+    background-color: var(--color-background-main);
     color: var(--color-text-primary);
-    outline: 1px solid yellow;
+    box-shadow: -1px -1px 2px 1px #ffffff22, 2px 2px 4px 1px #000000AA;
     padding: 1rem;
 }
 .feature h2{
