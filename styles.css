@@ -265,12 +265,20 @@ nav {
     text-decoration: none;
     color: inherit;
     font-size: 1.5rem;
+    line-height: 1.5rem;
+}
+nav a:hover{
+    background-color: var(--color-background-selected);
+    outline: 1px solid #ffffff44;
+
 }
 .navbar__nav a:visited{
     color: inherit;
 }
 .navbar__nav a[aria-current="page"]{
     background-color: var(--color-background-selected);
+    outline: 1px solid #ffffff44;
+    pointer-events: none;
 }
 .navbar__item img{
     display: block;
