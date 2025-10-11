@@ -30,6 +30,20 @@ html{
     --color-text-primary: var(--color-text-primary-light);
     --color-background-attention-light: hsl(166, 46%, 54%);
     --color-background-attention-dark: hsl(166, 69%, 25%);
+
+    --color-link-light: hsl(221, 100%, 59%);
+    --color-link-dark: hsl(229, 93%, 79%);
+    --color-link: var(--color-link-light);
+
+
+
+    --color-link-visited: hsl(269, 66%, 68%);
+    /*--color-link-visited-dark: hsl(266, 93%, 71%);*/
+    /*--color-link-visited: var(--color-link-visited-light);*/
+
+
+
+
     --color-background-attention: var(--color-background-attention-light);
     --gradient-attention-light: linear-gradient(hsl(166, 69%, 35%), hsl(166, 46%, 64%), hsl(166, 69%, 30%));
     --gradient-attention-dark: linear-gradient(hsl(166, 69%, 25%), hsl(166, 46%, 44%), hsl(166, 69%, 20%));
@@ -84,6 +98,7 @@ input::placeholder{
     .theme-wrapper{
         --color-brand: var(--color-brand-dark);
         --color-text-primary: var(--color-text-primary-dark);
+        --color-link: var(--color-link-dark);
         --color-background-main: var(--color-background-main-dark);
         --color-background-attention: var(--color-background-attention-dark);
         --color-text-attention: var(--color-text-attention-dark);
@@ -110,6 +125,7 @@ input::placeholder{
         --color-background-faded: var(--color-background-faded-light);
         --color-text-shadow: var(--color-text-shadow-light);
         --gradient-attention: var(--gradient-attention-light);
+        --color-link: var(--color-link-light);
 
         --color-code-keyword: hsl(232, 98%, 42%);
         --color-code-string: hsl(25, 86%, 37%);
@@ -250,6 +266,9 @@ nav {
     color: inherit;
     font-size: 1.5rem;
 }
+.navbar__nav a:visited{
+    color: inherit;
+}
 .navbar__nav a[aria-current="page"]{
     background-color: var(--color-background-selected);
 }
@@ -300,6 +319,12 @@ main{
     max-width: 1500px;
     margin: 0 auto;
 }
+a{
+    color: var(--color-link);
+}
+a:visited{
+    color: var(--color-link-visited);
+}
 main section{
     padding: 1rem;
 }
@@ -332,6 +357,9 @@ h1 img{
 }
 .php8-section__content p{
     font-size: 1.5rem;
+}
+.change-language{
+    text-align: right;
 }
 .link-button{
     display: block;
@@ -473,6 +501,10 @@ code{
     background-color: var(--color-brand);
     color: var(--color-text-secondary);
 }
+.action p a, .action p a:visited{
+    color: var(--color-text-secondary);
+}
+
 .action h2{
     text-align: center;
     margin-bottom: 0.5rem;
