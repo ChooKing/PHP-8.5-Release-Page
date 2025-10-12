@@ -77,6 +77,9 @@ html{
     --color-border-code-dark: hsl(229deg, 30%, 20%);
     --color-border-code: var(--color-border-code-light);
 
+    --php8-logo-light: url("/images/php8/logo_php8_5.svg");
+    --php8-logo-dark: url("/images/php8/logo_php8_5_dark.svg");
+    --php8-logo: var(--php8-logo-light);
 
 }
 #theme-toggle:checked + .theme-wrapper{
@@ -111,8 +114,9 @@ input::placeholder{
         --gradient-attention: var(--gradient-attention-dark);
         --color-background-header: var(--color-background-header-dark);
         --color-background-button: var(--color-background-button-dark);
-
+        --php8-logo: var(--php8-logo-dark);
     }
+
     label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
     }
@@ -134,11 +138,13 @@ input::placeholder{
         --color-code-keyword: hsl(232, 98%, 42%);
         --color-code-string: hsl(25, 86%, 37%);
         --color-code-comment: hsl(229, 7%, 48%);
+        --php8-logo: var(--php8-logo-light);
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/dark-mode.svg");
     }
-    #theme-toggle:checked + .theme-wrapper .navbar__item img, #theme-toggle:checked + .theme-wrapper .hero .php8-logo{
+    /* TODO: Replace logo on theme switch. Filter causes Z-index problems. */
+    #theme-toggle:checked + .theme-wrapper .navbar__item img{
         filter: contrast(300%) saturate(0%);
     }
     .navbar__item img, .hero .php8-logo{
@@ -167,6 +173,7 @@ input::placeholder{
         --gradient-attention: var(--gradient-attention-dark);
         --color-background-header: var(--color-background-header-dark);
         --color-background-button: var(--color-background-button-dark);
+        --php8-logo: var(--php8-logo-dark);
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
@@ -175,7 +182,7 @@ input::placeholder{
         filter: none;
     }
     .navbar__item img, .hero .php8-logo{
-        filter: contrast(300%) saturate(0%);
+        /*filter: contrast(300%) saturate(0%);*/
     }
 
 }
@@ -324,7 +331,8 @@ nav a:hover{
     max-height: 20rem;
     overflow-y: auto;
     background-color: var(--color-brand);
-    border: 1px solid hsl(229deg, 30%, calc(44% * 1.5));
+    color: var(--color-text-secondary);
+    border: 1px solid var(--color-border-code);
 }
 .search-modal__form:focus-within + .search__results{
     display: block;
@@ -390,9 +398,24 @@ h1{
     gap: 0.5rem;
 
 }
-h1 img{
+h1 span{
     margin-top: 0.4rem;
     height: 3.3rem;
+}
+.php8-logo-container{
+    user-select: none;
+    color: transparent;
+    position: relative;
+    width: 11.58rem;
+    height: 3.3rem;
+}
+.php8-logo-container::after{
+    content: var(--php8-logo);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
 }
 .php8-section__content{
     text-align: center;
@@ -400,6 +423,7 @@ h1 img{
 .php8-section__content p{
     font-size: 1.5rem;
 }
+
 .change-language{
     text-align: right;
 }
