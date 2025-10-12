@@ -31,6 +31,12 @@ html{
     --color-background-attention-light: hsl(166, 46%, 54%);
     --color-background-attention-dark: hsl(166, 69%, 25%);
 
+    --color-background-header-light: hsl(229deg, 50%, 89%);
+    --color-background-header-dark: hsl(229deg, 40%, 28%);
+    --color-background-header: var(--color-background-header-light);
+
+
+
     --color-link-light: hsl(221, 100%, 59%);
     --color-link-dark: hsl(229, 93%, 79%);
     --color-link: var(--color-link-light);
@@ -109,6 +115,7 @@ input::placeholder{
         --color-background-faded: var(--color-background-faded-dark);
         --color-text-shadow: var(--color-text-shadow-dark);
         --gradient-attention: var(--gradient-attention-dark);
+        --color-background-header: var(--color-background-header-dark);
 
     }
     label[for="theme-toggle"]{
@@ -125,6 +132,7 @@ input::placeholder{
         --color-background-faded: var(--color-background-faded-light);
         --color-text-shadow: var(--color-text-shadow-light);
         --gradient-attention: var(--gradient-attention-light);
+        --color-background-header: var(--color-background-header-light);
         --color-link: var(--color-link-light);
 
         --color-code-keyword: hsl(232, 98%, 42%);
@@ -161,6 +169,7 @@ input::placeholder{
         --color-background-faded: var(--color-background-faded-dark);
         --color-text-shadow: var(--color-text-shadow-dark);
         --gradient-attention: var(--gradient-attention-dark);
+        --color-background-header: var(--color-background-header-dark);
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
@@ -405,7 +414,7 @@ h1 img{
 }
 .feature{
     margin: 1rem 0;
-    padding: 1rem;
+    padding: 0;
     background-color: var(--color-background-main);
     color: var(--color-text-primary);
     box-shadow: -1px -1px 2px 1px #ffffff22, 2px 2px 4px 1px #000000AA;
@@ -414,7 +423,9 @@ h1 img{
 }
 .feature h2{
     text-align: center;
-    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    background-color: var(--color-background-header);
 }
 .feature__description{
     font-size: 1.2rem;
@@ -424,8 +435,8 @@ h1 img{
     hyphens: auto;
 }
 /* Compare Code*/
-.compare__code{
-
+.feature__description, .compare__code{
+    padding: 1rem;
 }
 .code__label, .phpcode{
     padding: 0.25rem;
