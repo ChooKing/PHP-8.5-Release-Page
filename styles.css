@@ -23,7 +23,7 @@ html{
     --color-brand-dark: hsl(229deg, 30%, 27%);
     --color-brand: var(--color-brand-light);
     --color-background-main-light: white;
-    --color-background-main-dark: hsl(229deg, 10%, 4%);
+    --color-background-main-dark: hsl(222, 95%, 3%);
     --color-background-main: var(--color-background-main-light);
     --color-text-primary-light: hsl(229deg, 90%, 8.8%);
     --color-text-primary-dark: hsl(229deg, 100%, 95.2%);
@@ -181,8 +181,8 @@ input::placeholder{
 }
 label[for="theme-toggle"]{
     cursor: pointer;
-    width: 1rem;
-    height: 1rem;
+    width: 1.5rem;
+    height: 1.5rem;
 }
 
 /* Nav Section */
