@@ -35,7 +35,7 @@ html{
     --color-text-attention-dark: hsl(220, 88%, 95%);
     --color-text-attention: var(--color-text-attention-light);
     --color-background-header-light: hsl(229deg, 50%, 89%);
-    --color-background-header-dark: hsl(229deg, 40%, 28%);
+    --color-background-header-dark: hsl(229deg, 30%, 17%);
     --color-background-header: var(--color-background-header-light);
 
     --color-background-button-light: hsl(267, 30%, 47%);
@@ -52,18 +52,6 @@ html{
 
 
     --color-link-visited: hsl(269, 66%, 68%);
-    /*--color-link-visited-dark: hsl(266, 93%, 71%);*/
-    /*--color-link-visited: var(--color-link-visited-light);*/
-
-
-
-
-
-    --gradient-attention-light: linear-gradient(hsl(166, 69%, 35%), hsl(166, 46%, 64%), hsl(166, 69%, 30%));
-    --gradient-attention-dark: linear-gradient(hsl(166, 69%, 25%), hsl(166, 46%, 44%), hsl(166, 69%, 20%));
-    --gradient-attention: var(--gradient-attention-light);
-
-
 
 
 
@@ -77,7 +65,7 @@ html{
     --color-background-selected: hsl(229deg, 30%, 40%);
     --color-text-secondary: hsl(229deg, 20%, 92%);
     --color-background-shadow-light: hsl(229, 23%, 91%);
-    --color-background-shadow-dark: hsl(229deg, 50%, 15%);
+    --color-background-shadow-dark: hsl(229deg, 10%, 17%);
     --color-background-shadow: var(--color-background-shadow-light);
     --color-background-faded-light: hsl(230, 10%, 82%);
     --color-background-faded-dark: hsl(229deg, 10%, 10%);
@@ -344,6 +332,8 @@ nav a:hover{
 main{
     max-width: 1500px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
 }
 a{
     color: var(--color-link);
@@ -415,13 +405,16 @@ h1 img{
     background-color: var(--color-background-shadow);
     color: var(--color-text-secondary);
 }
+
 .card{
-    margin: 1.5rem 0;
-    padding: 0;
+    margin: 0 0 1.5rem;
     background-color: var(--color-background-main);
     color: var(--color-text-primary);
-    box-shadow: -2px -2px 2px 1px #ffffff44, 2px 2px 4px 1px #000000AA;
+    box-shadow: -2px -2px 4px 1px #ffffff22, 2px 2px 3px 1px #000000AA;
     border-radius: 0.5rem;
+}
+.card:last-child{
+    margin-bottom: 0;
 }
 .card h2{
     display: flex;
@@ -501,20 +494,7 @@ code{
 .phpcode:nth-child(even){
     margin-bottom: 1rem;
 }
-/* Changelog*/
-/*.changelog{*/
-/*    padding: 1rem;*/
-/*    background-color: var(--color-background-main);*/
-/*    color: var(--color-text-primary);*/
 
-/*}*/
-/*.changelog h2{*/
-/*    text-align: center;*/
-/*    margin-bottom: 0.5rem;*/
-/*    text-decoration: underline;*/
-/*    text-decoration-thickness: 0.1rem;*/
-/*    text-underline-offset: 0.3rem;*/
-/*}*/
 .changelog__details{
     padding: 1rem;
 }
