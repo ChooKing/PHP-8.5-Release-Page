@@ -461,6 +461,7 @@ h1 span{
 }
 .card h2{
     display: flex;
+    flex-wrap: wrap;
     justify-content: center;
     align-items: center;
     padding: 0.5rem;
@@ -540,6 +541,7 @@ code{
 
 .changelog__details{
     padding: 1rem;
+    overflow-x: auto;
 }
 .changed-items{
     padding: 0 1rem;
