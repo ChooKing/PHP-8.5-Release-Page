@@ -245,6 +245,7 @@ nav {
     transform: rotate(-45deg) scaleX(1.25);
 }
 .navbar__nav{
+    z-index: 2;
     font-weight: 400;
     font-style: normal;
     font-variation-settings: "wdth" 400;
@@ -293,6 +294,8 @@ nav a:hover{
 .navbar__search-form{
     display: block;
     margin: 0.5rem;
+    position: relative;
+
 }
 .search-modal__form{
     display: flex;
@@ -310,7 +313,30 @@ nav a:hover{
     outline: none;
     color: white;
 }
-
+.search__results{
+    display: none;
+    position: absolute;
+    width: calc(100% - 2rem);
+    top: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 0.5rem 1rem;
+    max-height: 20rem;
+    overflow-y: auto;
+    background-color: var(--color-brand);
+    border: 1px solid hsl(229deg, 30%, calc(44% * 1.5));
+}
+.search-modal__form:focus-within + .search__results{
+    display: block;
+}
+.search__result{
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+}
+.search__result:hover{
+    background-color: var(--color-background-selected);
+}
 /* Heads Up */
 .headsup{
     background-color: var(--color-background-attention);
