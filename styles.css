@@ -143,13 +143,7 @@ input::placeholder{
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/dark-mode.svg");
     }
-    /* TODO: Replace logo on theme switch. Filter causes Z-index problems. */
-    #theme-toggle:checked + .theme-wrapper .navbar__item img{
-        filter: contrast(300%) saturate(0%);
-    }
-    .navbar__item img, .hero .php8-logo{
-        filter: none;
-    }
+
 }
 @media screen and (prefers-color-scheme: light){
     :root{
@@ -178,9 +172,7 @@ input::placeholder{
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
     }
-    #theme-toggle:checked + .theme-wrapper .navbar__item img, #theme-toggle:checked + .theme-wrapper .hero .php8-logo{
-        filter: none;
-    }
+
     .navbar__item img, .hero .php8-logo{
         /*filter: contrast(300%) saturate(0%);*/
     }
@@ -380,6 +372,7 @@ main section{
 }
 /* Hero */
 .hero{
+    z-index: -1;
     background-color: var(--color-brand);
     color: var(--color-text-secondary);
 }
