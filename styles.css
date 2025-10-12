@@ -20,20 +20,28 @@ html{
 /* Color/Theme setup */
 .theme-wrapper{
     --color-brand-light: hsl(229deg, 30%, 44%);
-    --color-brand-dark: hsl(229deg, 30%, 17%);
+    --color-brand-dark: hsl(229deg, 30%, 27%);
     --color-brand: var(--color-brand-light);
     --color-background-main-light: white;
-    --color-background-main-dark: hsl(229deg, 90%, 4%);
+    --color-background-main-dark: hsl(229deg, 10%, 4%);
     --color-background-main: var(--color-background-main-light);
     --color-text-primary-light: hsl(229deg, 90%, 8.8%);
     --color-text-primary-dark: hsl(229deg, 100%, 95.2%);
     --color-text-primary: var(--color-text-primary-light);
-    --color-background-attention-light: hsl(166, 46%, 54%);
+    --color-background-attention-light: hsl(166, 36%, 44%);
     --color-background-attention-dark: hsl(166, 69%, 25%);
-
+    --color-background-attention: var(--color-background-attention-light);
+    --color-text-attention-light: hsl(200, 4%, 99%);
+    --color-text-attention-dark: hsl(220, 88%, 95%);
+    --color-text-attention: var(--color-text-attention-light);
     --color-background-header-light: hsl(229deg, 50%, 89%);
     --color-background-header-dark: hsl(229deg, 40%, 28%);
     --color-background-header: var(--color-background-header-light);
+
+    --color-background-button-light: hsl(267, 30%, 47%);
+    --color-background-button-dark: hsl(267, 30%, 33%);
+    --color-background-button: var(--color-background-button-light);
+
 
 
 
@@ -50,15 +58,13 @@ html{
 
 
 
-    --color-background-attention: var(--color-background-attention-light);
+
     --gradient-attention-light: linear-gradient(hsl(166, 69%, 35%), hsl(166, 46%, 64%), hsl(166, 69%, 30%));
     --gradient-attention-dark: linear-gradient(hsl(166, 69%, 25%), hsl(166, 46%, 44%), hsl(166, 69%, 20%));
     --gradient-attention: var(--gradient-attention-light);
 
 
-    --color-text-attention-light: hsl(220, 88%, 3%);
-    --color-text-attention-dark: hsl(220, 88%, 95%);
-    --color-text-attention: var(--color-text-attention-light);
+
 
 
     --color-text-shadow-light: hsl(224, 5%, 43%);
@@ -116,6 +122,7 @@ input::placeholder{
         --color-text-shadow: var(--color-text-shadow-dark);
         --gradient-attention: var(--gradient-attention-dark);
         --color-background-header: var(--color-background-header-dark);
+        --color-background-button: var(--color-background-button-dark);
 
     }
     label[for="theme-toggle"]{
@@ -134,6 +141,7 @@ input::placeholder{
         --gradient-attention: var(--gradient-attention-light);
         --color-background-header: var(--color-background-header-light);
         --color-link: var(--color-link-light);
+        --color-background-button: var(--color-background-button-light);
 
         --color-code-keyword: hsl(232, 98%, 42%);
         --color-code-string: hsl(25, 86%, 37%);
@@ -170,6 +178,7 @@ input::placeholder{
         --color-text-shadow: var(--color-text-shadow-dark);
         --gradient-attention: var(--gradient-attention-dark);
         --color-background-header: var(--color-background-header-dark);
+        --color-background-button: var(--color-background-button-dark);
     }
     #theme-toggle:checked + .theme-wrapper label[for="theme-toggle"]{
         background-image: url("/images/icons/light-mode.svg");
@@ -383,15 +392,14 @@ h1 img{
     width: fit-content;
     margin: 1rem auto;
     padding: 1rem;
-    background-color: var(--color-background-attention);
-    background-image: var(--gradient-attention);
-    color: var(--color-text-attention);
+    background-color: var(--color-background-button);
+    color: var(--color-text-secondary);
     text-decoration: none;
-    text-shadow: 1px 1px 2px var(--color-text-shadow);
     font-size: 1.2rem;
-    font-weight: 500;
+    font-weight: 400;
     font-style: normal;
-    font-variation-settings: "wdth" 500;
+    font-variation-settings: "wdth" 400;
+    text-shadow: 2px 2px 3px black;
     border-radius: 1rem;
     box-shadow: -1px -1px 2px 1px #ffffff88, 2px 2px 2px 1px #000000BB;
     transition: filter 0.2s ease-in-out;
@@ -401,12 +409,7 @@ h1 img{
     outline: 3px solid #ffffff44;
     filter: brightness(1.1) contrast(1.1);
 }
-.php8-section__content .link-button{
-    font-size: 1.2rem;
-    font-weight: 600;
-    font-style: normal;
-    font-variation-settings: "wdth" 600;
-}
+
 /* New Features */
 .new-features{
     background-color: var(--color-background-shadow);
@@ -435,12 +438,15 @@ h1 img{
     font-size: 1rem;
     margin-left: 1ch;
     padding: 0.25rem 0.5rem;
-    background-color: var(--color-brand);
+    background-color: var(--color-background-selected);
+    border: 1px solid var(--color-border-code);
+}
+.feature h2 a:hover{
+    filter: brightness(1.2) contrast(1.2);
 }
 .feature__description{
     font-size: 1.2rem;
     line-height: 1.5;
-    margin-bottom: 1rem;
     overflow-wrap: break-word;
     hyphens: auto;
 }
