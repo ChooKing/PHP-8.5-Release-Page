@@ -268,7 +268,7 @@ nav {
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    position: fixed;
+    position: absolute;
     top: 3rem;
     border: 1px solid hsl(229deg, 30%, calc(44% * 1.5));
 
