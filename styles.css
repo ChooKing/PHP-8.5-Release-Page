@@ -28,7 +28,7 @@ html{
     --color-text-primary-light: hsl(229deg, 90%, 8.8%);
     --color-text-primary-dark: hsl(229deg, 100%, 95.2%);
     --color-text-primary: var(--color-text-primary-light);
-    --color-background-attention-light: hsl(166, 36%, 44%);
+    --color-background-attention-light: hsl(166, 36%, 37%);
     --color-background-attention-dark: hsl(166, 69%, 25%);
     --color-background-attention: var(--color-background-attention-light);
     --color-text-attention-light: hsl(200, 4%, 99%);
@@ -45,7 +45,7 @@ html{
 
 
 
-    --color-link-light: hsl(221, 100%, 59%);
+    --color-link-light: hsl(221, 100%, 39%);
     --color-link-dark: hsl(229, 93%, 79%);
     --color-link: var(--color-link-light);
 
