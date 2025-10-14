@@ -1,5 +1,6 @@
 :root{
     color-scheme: light dark;
+    --animation-time: 0.25s;
 }
 * {
     box-sizing: border-box;
@@ -37,30 +38,16 @@ html{
     --color-background-header-light: hsl(229deg, 50%, 89%);
     --color-background-header-dark: hsl(229deg, 30%, 17%);
     --color-background-header: var(--color-background-header-light);
-
     --color-background-button-light: hsl(267, 30%, 47%);
     --color-background-button-dark: hsl(267, 30%, 33%);
     --color-background-button: var(--color-background-button-light);
-
-
-
-
     --color-link-light: hsl(221, 100%, 39%);
     --color-link-dark: hsl(229, 93%, 79%);
     --color-link: var(--color-link-light);
-
-
-
     --color-link-visited: hsl(269, 66%, 68%);
-
-
-
     --color-text-shadow-light: hsl(224, 5%, 43%);
     --color-text-shadow-dark: hsl(233, 19%, 8%);
     --color-text-shadow: var(--color-text-shadow-light);
-
-
-
     --color-text-placeholder: hsl(229deg, 30%, 66%);
     --color-background-selected: hsl(229deg, 30%, 40%);
     --color-text-secondary: hsl(229deg, 20%, 92%);
@@ -196,7 +183,7 @@ nav {
     display: flex;
     flex-direction: column;
     position: relative;
-    --animation-time: 0.25s;
+
     padding: 1rem 1rem 0;
 }
 .nav__header{
@@ -244,26 +231,37 @@ nav {
     transform: rotate(-45deg) scaleX(1.25);
 }
 .navbar__nav{
+    display: none;
+    position: absolute;
     z-index: 2;
+    top: 3rem;
+    margin: 1rem 0;
+    padding: 1rem;
     font-weight: 400;
     font-style: normal;
     font-variation-settings: "wdth" 400;
     color: var(--color-text-secondary);
     list-style: none;
-    margin: 1rem 0;
-    padding: 1rem;
-    display: none;
     flex-direction: column;
     align-items: center;
     gap: 1rem;
-    position: absolute;
-    top: 3rem;
     border: 1px solid hsl(229deg, 30%, calc(44% * 1.5));
-
     background-color: var(--color-brand);
 }
 #nav-toggle:checked + nav .navbar__nav{
     display: flex;
+    animation: fadeIn 1s;
+}
+@keyframes fadeIn {
+    0%{
+        opacity: 0;
+    }
+    20%{
+        opacity: 0.5;
+    }
+    100% {
+        opacity: 1;
+    }
 }
 .navbar__nav a{
     display: block;
