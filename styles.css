@@ -189,25 +189,24 @@ label[for="theme-toggle"]{
 /* Nav Section */
 
 .nav__wrapper{
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    grid-template-rows: auto auto;
     background-color: var(--color-brand);
     max-width: 1500px;
     margin: 0 auto;
-    padding-bottom: 0.5rem;
+    padding: 1rem 0.5rem;
 }
 nav {
-    display: flex;
+    display: contents;
     flex-direction: column;
     position: relative;
 
     padding: 1rem 1rem 0;
 }
-.nav__header{
-    display: flex;
-    justify-content: space-between;
-    align-items: flex-start;
-}
 
 .hamburger-btn {
+    grid-area: 1 / 1 / 2 / 2;
     z-index: 2; /*Only needed if you park the menu in same location*/
     width: 1.5rem;
     height: 1.5rem;
@@ -231,7 +230,10 @@ nav {
 .hamburger-line:nth-child(3) {
     transform-origin: left;
 }
-
+.navbar__brand{
+    grid-area: 1 / 2 / 2 / 3;
+    margin: auto;
+}
 /*TODO: Animate open/close of menu*/
 
 #nav-toggle:checked + nav .hamburger-line:nth-child(1) {
@@ -304,6 +306,7 @@ nav a:hover{
     height: 1.5rem;
 }
 .navbar__search-form{
+    grid-area: 2 / 1 / 3 / 4;
     display: block;
     margin: 0.5rem;
     position: relative;
@@ -558,7 +561,7 @@ code{
 }
 
 .changelog__details{
-    padding: 1rem;
+    padding: 1rem 1rem 1rem 0;
     overflow-x: auto;
 }
 .changed-items{
@@ -626,9 +629,6 @@ code{
         display: flex;
         align-items: center;
         padding: 1rem;
-    }
-    nav{
-        display: contents;
     }
     .navbar__nav{
         width: auto;
