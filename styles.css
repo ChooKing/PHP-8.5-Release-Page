@@ -638,17 +638,14 @@ code {
     overflow-x: auto;
 }
 
-.changed-items {
-    list-style: none;
+.additions .changed-items {
+    list-style: "\2714";
+}
+.additions .changed-items li {
+    padding-left: 0.5rem;
 }
 
-.changed-items li {
-    text-indent: -2ch;
-}
-
-.changed-items li::before {
-    content: "\2714";
-    margin-right: 0.5ch;
+.additions .changed-items li::marker {
     color: var(--color-background-attention-light);
 }
 
