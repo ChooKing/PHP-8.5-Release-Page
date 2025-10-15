@@ -455,7 +455,7 @@ main section {
 
 }
 
-h1 span {
+.hero h1 span {
     margin-top: 0.4rem;
     height: 3.3rem;
 }
@@ -703,6 +703,9 @@ code {
 @media screen and (min-width: 580px) {
     .hero h1{
         flex-direction: row;
+    }
+    .hero h1 span{
+        margin: 0;
     }
     .phpcode {
         overflow-x: unset;
