@@ -502,6 +502,7 @@ h1 span {
     font-style: normal;
     font-variation-settings: "wdth" 400;
     text-shadow: 2px 2px 3px black;
+    text-align: center;
     border-radius: 1rem;
     box-shadow: -1px -1px 2px 1px #ffffff88, 2px 2px 2px 1px #000000BB;
     transition: filter 0.2s ease-in-out;
