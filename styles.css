@@ -701,6 +701,9 @@ code {
 
 /* RESPONSIVENESS START */
 @media screen and (min-width: 580px) {
+    .hero h1{
+        flex-direction: row;
+    }
     .phpcode {
         overflow-x: unset;
     }
