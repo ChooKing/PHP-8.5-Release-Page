@@ -525,7 +525,7 @@ h1 span{
     color: var(--color-text-attention);
 }
 .phpcode code{
-    white-space: pre-wrap;
+    white-space: pre;
 }
 code{
     font-family: monospace;
@@ -610,9 +610,12 @@ code{
 .footmenu li{
     list-style: none;
 }
-@media screen and (min-width: 480px){
+@media screen and (min-width: 580px){
     .phpcode{
         overflow-x: unset;
+    }
+    .phpcode code{
+        white-space: pre-wrap;
     }
 }
 @media screen and (min-width: 990px){
