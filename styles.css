@@ -126,9 +126,7 @@ html {
         --color-background-faded: var(--color-background-faded-light);
         --color-text-shadow: var(--color-text-shadow-light);
         --color-background-header: var(--color-background-header-light);
-
         --color-background-button: var(--color-background-button-light);
-
         --color-code-keyword: hsl(232, 98%, 42%);
         --color-code-string: hsl(25, 86%, 37%);
         --color-code-comment: hsl(229, 7%, 48%);
