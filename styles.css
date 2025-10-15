@@ -361,6 +361,7 @@ nav a:hover {
 }
 
 .search__results {
+    z-index: 2;
     display: none;
     position: absolute;
     width: calc(100% - 2rem);
@@ -433,12 +434,12 @@ main section {
 
 /* HERO START */
 .hero {
-    z-index: -1;
     background-color: var(--color-brand);
     color: var(--color-text-secondary);
 }
 
-h1 {
+.hero h1{
+    z-index: -1;
     font-size: 3rem;
     font-weight: 600;
     font-style: italic;
