@@ -524,6 +524,9 @@ h1 span{
     background-color: var(--color-background-attention);
     color: var(--color-text-attention);
 }
+.phpcode code{
+    white-space: pre-wrap;
+}
 code{
     font-family: monospace;
     font-weight: 400;
@@ -610,11 +613,6 @@ code{
 @media screen and (min-width: 480px){
     .phpcode{
         overflow-x: unset;
-    }
-    pre{
-        white-space: pre-wrap;
-        word-break: break-word;
-        overflow-wrap: break-word;
     }
 }
 @media screen and (min-width: 990px){

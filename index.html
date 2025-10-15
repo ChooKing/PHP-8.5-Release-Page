@@ -123,7 +123,7 @@
                 <div class="compare__code">
                     <div class="code__label">PHP &lt; 8.5</div>
                     <div class="phpcode">
-                        <pre><code><span class="html"><span class="default">$components </span><span
+                        <code><span class="html"><span class="default">$components </span><span
                                 class="keyword">= </span><span class="default">parse_url</span><span
                                 class="keyword">(</span><span
                                 class="string">"https://php.net/releases/8.5/en.php"</span><span
@@ -131,12 +131,12 @@
                                 class="keyword">(</span><span class="default">$components</span><span
                                 class="keyword">[</span><span class="string">'host'</span><span class="keyword">]);<br></span><span
                                 class="comment">// string(7) "php.net"</span></span>
-                        </code></pre>
+                        </code>
                     </div>
 
                     <div class="code__label">PHP &ge; 8.5</div>
                     <div class="phpcode">
-                        <pre><code><span class="html"><span class="default"></span><span
+                        <code><span class="html"><span class="default"></span><span
                                 class="keyword">use </span><span
                                 class="default">Uri\Rfc3986\Uri</span><span class="keyword">;<br><br></span><span
                                 class="default">$uri </span><span class="keyword">= new </span><span
@@ -145,7 +145,7 @@
                                 class="keyword">(</span><span class="default">$uri</span><span
                                 class="keyword">-&gt;</span><span class="default">getHost</span><span class="keyword">());<br></span><span
                                 class="comment">// string(7) "php.net"</span></span>
-                        </code></pre>
+                        </code>
                     </div>
                 </div>
 
@@ -161,7 +161,7 @@
                 </div>
                 <div class="compare__code">
                     <div class="code__label">PHP &lt; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                    <div class="phpcode"><code><span class="html"><span class="default"></span><span
                             class="keyword">final readonly class </span><span
                             class="default">PhpVersion<br></span><span
                             class="keyword">{<br>    public function </span><span
@@ -185,10 +185,10 @@
                             class="default">$version</span><span class="keyword">-&gt;</span><span class="default">withVersion</span><span
                             class="keyword">(</span><span class="string">'PHP 8.5'</span><span
                             class="keyword">)-&gt;</span><span class="default">version</span><span
-                            class="keyword">);<br></span><span class="comment">// Fatal error: Uncaught Error: Cannot modify readonly property PhpVersion::$version</span></span></code></pre>
+                            class="keyword">);<br></span><span class="comment">// Fatal error: Uncaught Error: Cannot modify readonly property PhpVersion::$version</span></span></code>
                     </div>
                     <div class="code__label">PHP &ge; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                    <div class="phpcode"><code><span class="html"><span class="default"></span><span
                             class="keyword">final readonly class </span><span
                             class="default">PhpVersion<br></span><span
                             class="keyword">{<br>    public function </span><span
@@ -215,7 +215,7 @@
                             class="default">var_dump</span><span class="keyword">(</span><span
                             class="default">$version</span><span class="keyword">-&gt;</span><span class="default">version</span><span
                             class="keyword">);<br></span><span
-                            class="comment">// string(7) "PHP 8.4"</span></span></code></pre>
+                            class="comment">// string(7) "PHP 8.4"</span></span></code>
                     </div>
                 </div>
             </article>
@@ -230,7 +230,7 @@
                 </div>
                 <div class="compare__code">
                     <div class="code__label">PHP &lt; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default">$input </span><span
+                    <div class="phpcode"><code><span class="html"><span class="default">$input </span><span
                             class="keyword">= </span><span class="string">' Some kind of string. '</span><span
                             class="keyword">;<br><br></span><span class="default">$output </span><span
                             class="keyword">= </span><span class="default">strtolower</span><span class="keyword">(<br>    </span><span
@@ -243,10 +243,10 @@
                             class="keyword">,<br>            </span><span class="default">trim</span><span
                             class="keyword">(</span><span class="default">$input</span><span class="keyword">)<br>        )<br>    )<br>);<br><br></span><span
                             class="default">var_dump</span><span class="keyword">(</span><span
-                            class="default">$output</span><span class="keyword">);<br></span><span class="comment">// string(19) "some-kind-of-string"</span></span></code></pre>
+                            class="default">$output</span><span class="keyword">);<br></span><span class="comment">// string(19) "some-kind-of-string"</span></span></code>
                     </div>
                     <div class="code__label">PHP &ge; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default">$input </span><span
+                    <div class="phpcode"><code><span class="html"><span class="default">$input </span><span
                             class="keyword">= </span><span class="string">' Some kind of string. '</span><span
                             class="keyword">;<br><br></span><span class="default">$output </span><span
                             class="keyword">= </span><span class="default">$input<br>    </span><span class="keyword">|&gt; </span><span
@@ -262,7 +262,7 @@
                             class="default">$string</span><span class="keyword">))<br>    |&gt; </span><span
                             class="default">strtolower</span><span class="keyword">(...);<br><br></span><span
                             class="default">var_dump</span><span class="keyword">(</span><span
-                            class="default">$output</span><span class="keyword">);<br></span><span class="comment">// string(19) "some-kind-of-string"</span></span></code></pre>
+                            class="default">$output</span><span class="keyword">);<br></span><span class="comment">// string(19) "some-kind-of-string"</span></span></code>
                     </div>
                 </div>
             </article>
@@ -278,20 +278,20 @@
                 </div>
                 <div class="compare__code">
                     <div class="code__label">PHP &lt; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                    <div class="phpcode"><code><span class="html"><span class="default"></span><span
                             class="keyword">function </span><span
                             class="default">getPhpVersion</span><span class="keyword">(): </span><span class="default">string<br></span><span
                             class="keyword">{<br>    return </span><span class="string">'PHP 8.4'</span><span
                             class="keyword">;<br>}<br><br></span><span class="default">getPhpVersion</span><span
-                            class="keyword">(); </span><span class="comment">// No Errors</span></span></code></pre>
+                            class="keyword">(); </span><span class="comment">// No Errors</span></span></code>
                     </div>
                     <div class="code__label">PHP &ge; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                    <div class="phpcode"><code><span class="html"><span class="default"></span><span
                             class="keyword">#[</span><span class="default">\NoDiscard</span><span class="keyword">]<br>function </span><span
                             class="default">getPhpVersion</span><span class="keyword">(): </span><span class="default">string<br></span><span
                             class="keyword">{<br>    return </span><span class="string">'PHP 8.5'</span><span
                             class="keyword">;<br>}<br><br></span><span class="default">getPhpVersion</span><span
-                            class="keyword">();<br></span><span class="comment">// Warning: The return value of function getPhpVersion() should either be used or intentionally ignored by casting it as (void)</span></span></code></pre>
+                            class="keyword">();<br></span><span class="comment">// Warning: The return value of function getPhpVersion() should either be used or intentionally ignored by casting it as (void)</span></span></code>
                     </div>
                 </div>
             </article>
@@ -307,7 +307,7 @@
                 </div>
                 <div class="compare__code">
                     <div class="code__label">PHP &lt; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                    <div class="phpcode"><code><span class="html"><span class="default"></span><span
                             class="keyword">final class </span><span
                             class="default">CalculatorTest </span><span class="keyword">extends </span><span
                             class="default">\PHPUnit\Framework\TestCase<br></span><span
@@ -336,10 +336,10 @@
                             class="default">$i</span><span class="keyword">, </span><span class="default">0</span><span
                             class="keyword">, </span><span class="default">$i</span><span class="keyword">];<br>            yield [</span><span
                             class="default">0</span><span class="keyword">, </span><span class="default">$i</span><span
-                            class="keyword">, -</span><span class="default">$i</span><span class="keyword">];<br>        }<br>    }<br>}</span></span></code></pre>
+                            class="keyword">, -</span><span class="default">$i</span><span class="keyword">];<br>        }<br>    }<br>}</span></span></code>
                     </div>
                     <div class="code__label">PHP &ge; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default"></span><span
+                    <div class="phpcode"><code><span class="html"><span class="default"></span><span
                             class="keyword">final class </span><span
                             class="default">CalculatorTest<br></span><span class="keyword">{<br>    #[</span><span
                             class="default">Test\CaseGenerator</span><span
@@ -364,7 +364,7 @@
                             class="keyword">::</span><span class="default">subtract</span><span class="keyword">(</span><span
                             class="default">$minuend</span><span class="keyword">, </span><span class="default">$subtrahend</span><span
                             class="keyword">) === </span><span class="default">$result<br>        </span><span
-                            class="keyword">);<br>    }<br>}</span></span></code></pre>
+                            class="keyword">);<br>    }<br>}</span></span></code>
                     </div>
                 </div>
             </article>
@@ -381,7 +381,7 @@
                 </div>
                 <div class="compare__code">
                     <div class="code__label">PHP &lt; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default">$sh </span><span
+                    <div class="phpcode"><code><span class="html"><span class="default">$sh </span><span
                             class="keyword">= </span><span class="default">curl_share_init</span><span class="keyword">();<br></span><span
                             class="default">curl_share_setopt</span><span class="keyword">(</span><span class="default">$sh</span><span
                             class="keyword">, </span><span class="default">CURLSHOPT_SHARE</span><span
@@ -404,10 +404,10 @@
                             class="keyword">, </span><span class="default">CURLOPT_SHARE</span><span
                             class="keyword">, </span><span class="default">$sh</span><span class="keyword">);<br></span><span
                             class="default">curl_exec</span><span class="keyword">(</span><span
-                            class="default">$ch2</span><span class="keyword">);</span></span></code></pre>
+                            class="default">$ch2</span><span class="keyword">);</span></span></code>
                     </div>
                     <div class="code__label">PHP &ge; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default">$sh </span><span
+                    <div class="phpcode"><code><span class="html"><span class="default">$sh </span><span
                             class="keyword">= </span><span class="default">curl_share_init_persistent</span><span
                             class="keyword">([<br>    </span><span class="default">CURL_LOCK_DATA_DNS</span><span
                             class="keyword">,<br>    </span><span class="default">CURL_LOCK_DATA_CONNECT<br></span><span
@@ -429,7 +429,7 @@
                             class="default">CURLOPT_SHARE</span><span class="keyword">, </span><span
                             class="default">$sh</span><span class="keyword">);<br></span><span
                             class="default">curl_exec</span><span class="keyword">(</span><span
-                            class="default">$ch2</span><span class="keyword">);</span></span></code></pre>
+                            class="default">$ch2</span><span class="keyword">);</span></span></code>
                     </div>
                 </div>
             </article>
@@ -444,7 +444,7 @@
                 </div>
                 <div class="compare__code">
                     <div class="code__label">PHP &lt; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default">$php </span><span
+                    <div class="phpcode"><code><span class="html"><span class="default">$php </span><span
                             class="keyword">= [<br>    </span><span class="string">'php-82' </span><span
                             class="keyword">=&gt; [</span><span class="string">'state' </span><span class="keyword">=&gt; </span><span
                             class="string">'security'</span><span class="keyword">, </span><span
@@ -471,10 +471,10 @@
                             class="default">$upcomingRelease </span><span class="keyword">= </span><span
                             class="default">$version</span><span
                             class="keyword">;<br>        break;<br>    }<br>}<br><br></span><span class="default">var_dump</span><span
-                            class="keyword">(</span><span class="default">$upcomingRelease</span><span class="keyword">);</span></span></code></pre>
+                            class="keyword">(</span><span class="default">$upcomingRelease</span><span class="keyword">);</span></span></code>
                     </div>
                     <div class="code__label">PHP &ge; 8.5</div>
-                    <div class="phpcode"><pre><code><span class="html"><span class="default">$php </span><span
+                    <div class="phpcode"><code><span class="html"><span class="default">$php </span><span
                             class="keyword">= [<br>    </span><span class="string">'php-82' </span><span
                             class="keyword">=&gt; [</span><span class="string">'state' </span><span class="keyword">=&gt; </span><span
                             class="string">'security'</span><span class="keyword">, </span><span
@@ -499,7 +499,7 @@
                             class="keyword">[</span><span class="string">'state'</span><span
                             class="keyword">] === </span><span class="string">'upcoming'<br>    </span><span
                             class="keyword">)<br>);<br><br></span><span class="default">var_dump</span><span
-                            class="keyword">(</span><span class="default">$upcomingRelease</span><span class="keyword">);</span></span></code></pre>
+                            class="keyword">(</span><span class="default">$upcomingRelease</span><span class="keyword">);</span></span></code>
                     </div>
                 </div>
             </article>
