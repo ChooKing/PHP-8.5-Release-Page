@@ -200,6 +200,7 @@ label[for="theme-toggle"] {
 
 .theme-wrapper{
     background-color: var(--color-background-shadow);
+    padding-bottom: 1rem;
 }
 
 /* NAV START */
@@ -686,7 +687,7 @@ code {
 }
 
 .footmenu a {
-    color: white;
+    color: var(--color-text-primary);
     text-decoration: none;
 }
 
