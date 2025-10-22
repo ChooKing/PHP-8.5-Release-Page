@@ -432,7 +432,7 @@ a:visited {
 }
 
 main section {
-    padding-top: 1rem;
+    padding: 1rem;
 }
 
 /* HERO START */
@@ -715,6 +715,7 @@ code {
         white-space: pre-wrap;
         word-wrap: break-word;
     }
+
 }
 
 @media screen and (min-width: 990px) {
